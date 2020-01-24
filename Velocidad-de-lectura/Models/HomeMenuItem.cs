@@ -6,8 +6,8 @@ namespace Velocidad_de_lectura.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        Inicio,
+        AcercaDe
     }
     public class HomeMenuItem
     {

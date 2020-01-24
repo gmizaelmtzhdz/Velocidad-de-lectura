@@ -21,7 +21,7 @@ namespace Velocidad_de_lectura.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            MenuPages.Add((int)MenuItemType.Inicio, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -30,10 +30,10 @@ namespace Velocidad_de_lectura.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
+                    case (int)MenuItemType.Inicio:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
+                    case (int)MenuItemType.AcercaDe:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
                 }
