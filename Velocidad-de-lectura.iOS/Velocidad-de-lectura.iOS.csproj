@@ -123,6 +123,9 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\cohete.png" />
     <BundleResource Include="Resources\cohete_solo.png" />
+    <BundleResource Include="Resources\configuracion.png" />
+    <BundleResource Include="Resources\info.png" />
+    <BundleResource Include="Resources\historial.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

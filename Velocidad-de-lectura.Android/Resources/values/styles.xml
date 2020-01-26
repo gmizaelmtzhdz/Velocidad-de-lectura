@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="MainTheme" parent="MainTheme.Base">
+       <item name="android:colorPressedHighlight">@color/blanco</item>
+       <item name="android:colorLongPressedHighlight">@color/blanco</item>
+       <item name="android:colorFocusedHighlight">@color/blanco</item>
+       <item name="android:colorActivatedHighlight">@color/blanco</item>
+       <item name="android:activatedBackgroundIndicator">@color/blanco</item>
     </style>
     <!-- Base theme applied no matter what API -->
     <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">

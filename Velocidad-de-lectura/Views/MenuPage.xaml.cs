@@ -20,8 +20,30 @@ namespace Velocidad_de_lectura.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Inicio, Title="Inicio" },
-                new HomeMenuItem {Id = MenuItemType.AcercaDe, Title="Acerca de" }
+                new HomeMenuItem {
+                    Id = MenuItemType.Inicio,
+                    Title="Inicio",
+                    Icon ="home.png",
+                    TextColor="#000000"
+                },
+                new HomeMenuItem {
+                    Id = MenuItemType.Inicio,
+                    Title="Configuración",
+                    Icon ="configuracion.png",
+                    TextColor="#000000"
+                },
+                new HomeMenuItem {
+                    Id = MenuItemType.Inicio,
+                    Title="Historial",
+                    Icon ="historial.png",
+                    TextColor="#000000"
+                },
+                new HomeMenuItem {
+                    Id = MenuItemType.AcercaDe,
+                    Title="Acerca de",
+                    Icon ="info.png",
+                    TextColor="#000000"
+                }
             };
 
             ListViewMenu.ItemsSource = menuItems;
