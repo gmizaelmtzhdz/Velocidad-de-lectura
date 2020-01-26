@@ -22,7 +22,7 @@ namespace Velocidad_de_lectura.Views
 
         public ItemsPage()
         {
-            InitializeComponent();
+            InitializeComponent();  
 
             BindingContext = viewModel = new ItemsViewModel();
         }
