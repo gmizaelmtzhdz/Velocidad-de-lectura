@@ -20,8 +20,8 @@ namespace Velocidad_de_lectura.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Inicio, Title="Inicio" },
+                new HomeMenuItem {Id = MenuItemType.AcercaDe, Title="Acerca de" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
