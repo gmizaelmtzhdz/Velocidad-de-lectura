@@ -6,6 +6,7 @@
        <item name="android:colorFocusedHighlight">@color/blanco</item>
        <item name="android:colorActivatedHighlight">@color/blanco</item>
        <item name="android:activatedBackgroundIndicator">@color/blanco</item>
+
     </style>
     <!-- Base theme applied no matter what API -->
     <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -33,7 +34,6 @@
     <style name="Theme.Splash"
            parent="Theme.AppCompat.NoActionBar">
         <item name="windowNoTitle">true</item>
-
         <item name="colorPrimary">#FFFFFF</item>
         <item name="colorPrimaryDark">#FFFFFF</item>
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Velocidad_de_lectura.ViewModels;
 
 namespace Velocidad_de_lectura.Views
 {
@@ -13,11 +14,13 @@ namespace Velocidad_de_lectura.Views
     public partial class MenuPage : ContentPage
     {
         MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+
         List<HomeMenuItem> menuItems;
         public MenuPage()
         {
             InitializeComponent();
 
+            
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {
@@ -28,8 +31,8 @@ namespace Velocidad_de_lectura.Views
                 },
                 new HomeMenuItem {
                     Id = MenuItemType.Inicio,
-                    Title="Configuración",
                     Icon ="configuracion.png",
+                    Title="Configuración",
                     TextColor="#000000"
                 },
                 new HomeMenuItem {

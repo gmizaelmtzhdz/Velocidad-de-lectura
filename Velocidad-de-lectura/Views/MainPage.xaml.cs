@@ -19,6 +19,7 @@ namespace Velocidad_de_lectura.Views
         {
             InitializeComponent();
 
+            this.BackgroundColor = Color.OrangeRed;
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Inicio, (NavigationPage)Detail);
@@ -31,7 +32,11 @@ namespace Velocidad_de_lectura.Views
                 switch (id)
                 {
                     case (int)MenuItemType.Inicio:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        NavigationPage inicio = new NavigationPage(new ItemsPage())
+                        {
+                            BarBackgroundColor = Color.Gray
+                        };
+                        MenuPages.Add(id, inicio);
                         break;
                     case (int)MenuItemType.AcercaDe:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));

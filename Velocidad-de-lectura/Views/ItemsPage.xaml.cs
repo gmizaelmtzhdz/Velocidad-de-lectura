@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using Velocidad_de_lectura.Models;
 using Velocidad_de_lectura.Views;
 using Velocidad_de_lectura.ViewModels;
+using Velocidaddelectura.Views;
 
 namespace Velocidad_de_lectura.Views
 {
@@ -25,8 +26,16 @@ namespace Velocidad_de_lectura.Views
             InitializeComponent();  
 
             BindingContext = viewModel = new ItemsViewModel();
-        }
+            //LanzarConfiguracion();
+            Title = "PageTitle";
 
+            NavigationPage.SetHasBackButton(this, false);
+
+        }
+        async void LanzarConfiguracion()
+        {
+            await Navigation.PushAsync(new Configuracion());
+        }
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var item = args.SelectedItem as Item;
