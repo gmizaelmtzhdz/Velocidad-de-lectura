@@ -3,7 +3,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Velocidad_de_lectura.Views.MenuPage"
-    Title="Menú">
+    Title="{Binding Title}"
+    Icon="{Binding Icon}"
+    IconImageSource="burger_naranja.png"
+    BackgroundColor="#FFFFFF">
 
 
     <NavigationPage.TitleView>

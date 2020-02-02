@@ -126,6 +126,8 @@
     <BundleResource Include="Resources\configuracion.png" />
     <BundleResource Include="Resources\info.png" />
     <BundleResource Include="Resources\historial.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\burger_naranja.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -136,8 +138,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />
-    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.8" />
+    <PackageReference Include="Xamarin.Forms" Version="4.4.0.991537" />
+    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.21.9" />
     <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

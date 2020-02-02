@@ -1,15 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    x:Class="Velocidad_de_lectura.Views.ItemsPage"
-    Title="{Binding Title}"
-    x:Name="BrowseItemsPage"
-    BackgroundColor="#FFFFFF">
-   <ScrollView>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Velocidaddelectura.Views.Inicio"
+             BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <ScrollView>
        <StackLayout HeightRequest="1000">
         <Image
             x:Name="HomeImageCohete"
@@ -33,5 +26,5 @@
         </Button>
     </StackLayout>
    </ScrollView>
-    
+    </ContentPage.Content>
 </ContentPage>

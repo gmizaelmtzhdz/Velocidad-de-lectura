@@ -5,47 +5,51 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Velocidad_de_lectura.ViewModels;
+using Velocidaddelectura.Views;
 
 namespace Velocidad_de_lectura.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
-
+         RootPage root;
         List<HomeMenuItem> menuItems;
-        public MenuPage()
+        public MenuPage(RootPage root)
         {
+            this.root = root;
             InitializeComponent();
 
-            
+            BindingContext = new BaseViewModel
+            {
+                Title = "Velocidad",
+                Icon = "burger_naranja.png"
+            };
+
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {
                     Id = MenuItemType.Inicio,
                     Title="Inicio",
                     Icon ="home.png",
-                    TextColor="#000000"
+                    TextColor="#636363"
                 },
                 new HomeMenuItem {
-                    Id = MenuItemType.Inicio,
+                    Id = MenuItemType.Configuracion,
                     Icon ="configuracion.png",
                     Title="Configuración",
-                    TextColor="#000000"
+                    TextColor="#636363"
                 },
                 new HomeMenuItem {
-                    Id = MenuItemType.Inicio,
+                    Id = MenuItemType.Historial,
                     Title="Historial",
                     Icon ="historial.png",
-                    TextColor="#000000"
+                    TextColor="#636363"
                 },
                 new HomeMenuItem {
                     Id = MenuItemType.AcercaDe,
                     Title="Acerca de",
                     Icon ="info.png",
-                    TextColor="#000000"
+                    TextColor="#636363"
                 }
             };
 
@@ -58,7 +62,7 @@ namespace Velocidad_de_lectura.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await RootPage.NavigateFromMenu(id);
+                await this.root.NavigateAsync((int)((HomeMenuItem)e.SelectedItem).Id);
             };
         }
     }
