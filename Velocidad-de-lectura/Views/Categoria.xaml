@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Velocidaddelectura.Views.Categoria"
+    BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <ScrollView>
+               <StackLayout Spacing="0">
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Image Source="cohete_solo.png" Grid.Column="1" Grid.Row="0"/>
+                <Label FontSize="24" Text="Categorías" 
+                       Grid.Column="1" 
+                       Grid.Row="1" 
+                       TextColor="#000000" 
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <Label FontSize="14" 
+                       Text="Selecciona una categoría" 
+                       Grid.Column="1" 
+                       Grid.Row="2" 
+                       TextColor="#000000" 
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <Label FontSize="14" 
+                       Text=""
+                       x:Name="LblCategoria"
+                       Grid.Column="1" 
+                       Grid.Row="3" 
+                       TextColor="#000000"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="#000000"/>
+            <ListView x:Name="ListCategorias" ItemsSource="{Binding NombreCategoria}"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Label FontSize="14" Margin="20,0,0,0" HorizontalTextAlignment="Start" TextColor="#000000"   Text="{Binding Nombre, StringFormat=' • {0}'}" VerticalOptions="CenterAndExpand"/>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
