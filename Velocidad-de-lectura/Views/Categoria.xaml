@@ -14,7 +14,7 @@
                     <ColumnDefinition Width="0.2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="100"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
@@ -29,7 +29,7 @@
                        Text="Selecciona una categoría" 
                        Grid.Column="1" 
                        Grid.Row="2" 
-                       TextColor="#000000" 
+                       TextColor="#FF8C00"  
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
                 <Label FontSize="14" 
@@ -43,14 +43,13 @@
             </Grid>
 
             <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="#000000"/>
-            <ListView x:Name="ListCategorias" ItemsSource="{Binding NombreCategoria}"  >
+            <ListView x:Name="ListCategorias" ItemsSource="{Binding NombreCategoria}" Margin="30, 0, 30, 30">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <Label FontSize="14" Margin="20,0,0,0" HorizontalTextAlignment="Start" TextColor="#000000"   Text="{Binding Nombre, StringFormat=' • {0}'}" VerticalOptions="CenterAndExpand"/>
-                            </ViewCell.View>
-                        </ViewCell>
+                                <ImageCell Height="100"  TextColor="#636363"
+                                     Text="{Binding Nombre}"
+                                     ImageSource="{Binding Imagen}">
+                                </ImageCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
