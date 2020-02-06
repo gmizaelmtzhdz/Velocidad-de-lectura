@@ -18,7 +18,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <Image Source="cohete_solo.png" Grid.Column="1" Grid.Row="0"/>
+                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="0"/>
                 <Label FontSize="24" Text="Categorías" 
                        Grid.Column="1" 
                        Grid.Row="1" 
@@ -30,14 +30,6 @@
                        Grid.Column="1" 
                        Grid.Row="2" 
                        TextColor="#FF8C00"  
-                       VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand"></Label>
-                <Label FontSize="14" 
-                       Text=""
-                       x:Name="LblCategoria"
-                       Grid.Column="1" 
-                       Grid.Row="3" 
-                       TextColor="#000000"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
             </Grid>
