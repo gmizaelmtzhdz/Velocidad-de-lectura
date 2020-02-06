@@ -11,5 +11,10 @@ namespace Velocidaddelectura.Views
         {
             InitializeComponent();
         }
+        private void BtnSeleccion_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Categoria(), true);
+
+        }
     }
 }

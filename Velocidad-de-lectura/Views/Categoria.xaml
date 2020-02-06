@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Velocidaddelectura.Views.Categoria"
+    BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <ScrollView>
+               <StackLayout Spacing="0">
+            <Grid Margin="0,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="0"/>
+                <Label FontSize="24" Text="Categorías" 
+                       Grid.Column="1" 
+                       Grid.Row="1" 
+                       TextColor="#000000" 
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                <Label FontSize="14" 
+                       Text="Selecciona una categoría" 
+                       Grid.Column="1" 
+                       Grid.Row="2" 
+                       TextColor="#FF8C00"  
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+            </Grid>
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="#000000"/>
+            <ListView x:Name="ListCategorias" ItemsSource="{Binding NombreCategoria}" Margin="30, 0, 30, 30">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                                <ImageCell Height="100"  TextColor="#636363"
+                                     Text="{Binding Nombre}"
+                                     ImageSource="{Binding Imagen}">
+                                </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

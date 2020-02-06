@@ -128,6 +128,22 @@
     <BundleResource Include="Resources\historial.png" />
     <BundleResource Include="Resources\home.png" />
     <BundleResource Include="Resources\burger_naranja.png" />
+    <BundleResource Include="Resources\cine.png" />
+    <BundleResource Include="Resources\arte.png" />
+    <BundleResource Include="Resources\baile.png" />
+    <BundleResource Include="Resources\ciencia_ficcion.png" />
+    <BundleResource Include="Resources\cuentos.png" />
+    <BundleResource Include="Resources\deporte.png" />
+    <BundleResource Include="Resources\idiomas.png" />
+    <BundleResource Include="Resources\juegos.png" />
+    <BundleResource Include="Resources\matematicas.png" />
+    <BundleResource Include="Resources\moda.png" />
+    <BundleResource Include="Resources\musica.png" />
+    <BundleResource Include="Resources\naturaleza.png" />
+    <BundleResource Include="Resources\negocios.png" />
+    <BundleResource Include="Resources\salud.png" />
+    <BundleResource Include="Resources\tecnologia.png" />
+    <BundleResource Include="Resources\mascota.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

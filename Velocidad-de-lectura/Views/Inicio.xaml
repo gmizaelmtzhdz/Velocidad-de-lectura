@@ -22,7 +22,8 @@
             CornerRadius="20"
             WidthRequest="300"
             HorizontalOptions="Center"
-            Margin="0,50,0,0">
+            Margin="0,50,0,0"
+            Clicked="BtnSeleccion_Clicked" >
         </Button>
     </StackLayout>
    </ScrollView>
