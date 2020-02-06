@@ -3,5 +3,45 @@
              x:Class="Velocidaddelectura.Views.Velocidad"
              BackgroundColor="#FFFFFF">
     <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label FontSize="24" Text="Categorías" 
+                           Grid.Column="1" 
+                           Grid.Row="0" 
+                           TextColor="#000000" 
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"></Label>
+                    <Label FontSize="14" 
+                           Text="Selecciona una categoría" 
+                           Grid.Column="1" 
+                           Grid.Row="2" 
+                           TextColor="#FF8C00"  
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"></Label>
+                </Grid>
+
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString x:Name="lblContenedor">
+                            
+
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
