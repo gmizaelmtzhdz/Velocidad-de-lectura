@@ -31,14 +31,19 @@
                            HorizontalOptions="CenterAndExpand"></Label>
                 </Grid>
 
-                <Label>
-                    <Label.FormattedText>
-                        <FormattedString x:Name="lblContenedor">
-                            
 
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
+                <StackLayout HeightRequest="3000" >
+                    <CollectionView ItemsLayout="HorizontalList"  Margin="20,10,20,100"  ItemsSource="{Binding lblContenedor}">
+                     <CollectionView.ItemTemplate>
+                         <DataTemplate>
+                             <Label Text="{Binding Texto}" />
+                         </DataTemplate>
+                     </CollectionView.ItemTemplate>
+                 </CollectionView>
+                </StackLayout>
+                
+
+
 
 
             </StackLayout>
