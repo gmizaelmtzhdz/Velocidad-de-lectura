@@ -32,19 +32,10 @@
                 </Grid>
 
 
-                <StackLayout HeightRequest="3000" >
-                    <CollectionView ItemsLayout="HorizontalList"  Margin="20,10,20,100"  ItemsSource="{Binding lblContenedor}">
-                     <CollectionView.ItemTemplate>
-                         <DataTemplate>
-                             <Label Text="{Binding Texto}" />
-                         </DataTemplate>
-                     </CollectionView.ItemTemplate>
-                 </CollectionView>
-                </StackLayout>
+                <Label FormattedText="{Binding ContenedorTexto}" FontSize="28"/>
+
+
                 
-
-
-
 
             </StackLayout>
         </ScrollView>

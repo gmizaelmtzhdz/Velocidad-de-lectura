@@ -15,7 +15,7 @@ namespace Velocidaddelectura.Views
         public Velocidad(CategoriaModel categoria)
         {
             InitializeComponent();
-            BindingContext = new VelocidadViewModel(Navigation);
+            this.BindingContext = new VelocidadViewModel(Navigation);
 
 
         }
