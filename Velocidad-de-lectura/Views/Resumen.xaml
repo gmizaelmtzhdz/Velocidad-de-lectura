@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Velocidaddelectura.Views.Resumen"
+    BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="0,10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.2*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Label FontSize="48" Text="2000" 
+                           Grid.Column="1" 
+                           Grid.Row="0" 
+                           TextColor="#000000" 
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"></Label>
+                    <Label FontSize="14" 
+                           Text="Palabras por segundo" 
+                           Grid.Column="1" 
+                           Grid.Row="2" 
+                           TextColor="#FF8C00"  
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"></Label>
+                </Grid>
+                <Button
+                    Text="CONTINUAR"
+                    FontSize="16"
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#d6450c"
+                    BorderColor="#d6450c"
+                    BorderWidth="1"
+                    CornerRadius="20"
+                    WidthRequest="300"
+                    HorizontalOptions="Center"
+                    Margin="0,50,0,0"/>
+                </StackLayout>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
