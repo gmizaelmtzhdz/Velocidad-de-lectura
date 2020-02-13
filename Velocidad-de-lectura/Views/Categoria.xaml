@@ -14,23 +14,18 @@
                     <ColumnDefinition Width="0.2*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="0"/>
+                <ProgressBar ProgressColor="Orange" Progress="0.25" Grid.Column="1" Grid.Row="0"></ProgressBar>
+                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
                 <Label FontSize="14" 
                        Text="Selecciona una categoría" 
                        Grid.Column="1" 
-                       Grid.Row="1" 
-                       TextColor="#d6450c"  
-                       VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand"></Label>
-                <Label FontSize="12" Text="Paso 1 de 4"
-                       Grid.Column="1" 
                        Grid.Row="2" 
-                       TextColor="#000000" 
+                       TextColor="#9f6934"  
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
                 

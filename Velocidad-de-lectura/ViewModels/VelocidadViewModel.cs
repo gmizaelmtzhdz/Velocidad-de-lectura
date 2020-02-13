@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Input;
 using Velocidaddelectura.Models;
 using Velocidaddelectura.Views;
@@ -18,6 +19,7 @@ namespace Velocidaddelectura.ViewModels
         private static int palabra_inicio = 0;
         private static int palabra_fin = 0;
         private static INavigation navigation;
+        private static Timer cronometro;
 
         public VelocidadViewModel(INavigation nav)
         {
@@ -32,6 +34,12 @@ namespace Velocidaddelectura.ViewModels
                      string propertyName = null) =>
                     PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs(propertyName));
+
+        private static void Revisar_Tiempo(object sender, ElapsedEventArgs e)
+        {
+            Application.Current.MainPage.DisplayAlert("Cronómetro", "N", "Continuar");
+        }
+
         private ICommand _navigationCommand = new Command<Span>(async (palabra) =>
         {
             Taps++;
@@ -41,6 +49,12 @@ namespace Velocidaddelectura.ViewModels
                 case 1:
                     palabra.TextColor = Color.Green;
                     palabra_inicio = Convert.ToInt32(palabra.StyleId);
+
+                    cronometro = new Timer();
+                    cronometro.Interval = 3000;
+                    cronometro.Elapsed += Revisar_Tiempo;
+                    cronometro.Start();
+
                     break;
                 case 2:
                     palabra.TextColor = Color.Red;
