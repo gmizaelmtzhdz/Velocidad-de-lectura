@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Threading.Tasks;
-using System.Timers;
+using System.Diagnostics;
 using System.Windows.Input;
 using Velocidaddelectura.Models;
 using Velocidaddelectura.Views;
@@ -13,13 +12,19 @@ namespace Velocidaddelectura.ViewModels
     public class VelocidadViewModel: INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
         public static int Taps = 0;
         private String texto;
         private String[] arreglo;
         private static int palabra_inicio = 0;
         private static int palabra_fin = 0;
         private static INavigation navigation;
-        private static Timer cronometro;
+
+        private static Stopwatch StopWatch = new Stopwatch();
+        private static bool tiempo_finalizo = false;
+
+        public static int TiempoConfigurado { get; set; }
+
 
         public VelocidadViewModel(INavigation nav)
         {
@@ -35,32 +40,56 @@ namespace Velocidaddelectura.ViewModels
                     PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs(propertyName));
 
-        private static void Revisar_Tiempo(object sender, ElapsedEventArgs e)
+        
+        static void Tiempo_Tick(object sender, EventArgs e)
         {
+
             Application.Current.MainPage.DisplayAlert("Cronómetro", "N", "Continuar");
+            //cada tick representa 100 milisegundos
         }
 
         private ICommand _navigationCommand = new Command<Span>(async (palabra) =>
         {
-            Taps++;
-            palabra.FontSize = 38;
             switch (Taps)
             {
-                case 1:
+                case 0:
+                    Taps++;
+                    palabra.FontSize = 38;
                     palabra.TextColor = Color.Green;
                     palabra_inicio = Convert.ToInt32(palabra.StyleId);
-
-                    cronometro = new Timer();
-                    cronometro.Interval = 3000;
-                    cronometro.Elapsed += Revisar_Tiempo;
-                    cronometro.Start();
+                    tiempo_finalizo = false;
+                    if (!StopWatch.IsRunning) { StopWatch.Start(); }
+                    Device.StartTimer(new TimeSpan(0, 0, 1), () => {
+                        if (StopWatch.IsRunning && StopWatch.Elapsed.Seconds >= TiempoConfigurado)
+                        {
+                            StopWatch.Stop();
+                            StopWatch.Reset();
+                            tiempo_finalizo = true;
+                            Application.Current.MainPage.DisplayAlert("Ejercicio Finalizado", "Selecciona la última palabra leída", "Ok");
+                        }
+                        return true;
+                    });
 
                     break;
-                case 2:
-                    palabra.TextColor = Color.Red;
-                    palabra_fin = Convert.ToInt32(palabra.StyleId);
-                    await Application.Current.MainPage.DisplayAlert("Palabras", "Cantidad de palabras leidas: "+(palabra_fin-palabra_inicio+1), "Continuar");
-                    navigation.PushAsync(new Resumen(1,2));
+                case 1:
+                    if(tiempo_finalizo)
+                    {
+                        Taps++;
+                        palabra.FontSize = 38;
+                        palabra.TextColor = Color.Red;
+                        palabra_fin = Convert.ToInt32(palabra.StyleId);
+                        int palabras_leidas = 0;
+                        if(palabra_fin<palabra_inicio)
+                        {
+                            palabras_leidas = palabra_inicio - palabra_fin + 1;
+                        }
+                        else
+                        {
+                            palabras_leidas = palabra_fin - palabra_inicio + 1;
+                        }
+                        await Application.Current.MainPage.DisplayAlert("Palabras", "Cantidad de palabras leidas: " + palabras_leidas, "Continuar");
+                        navigation.PushAsync(new Resumen(1, 2));
+                    }
                     break;
                 default:
                     Taps = 0;
