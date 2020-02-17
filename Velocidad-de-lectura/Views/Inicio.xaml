@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Velocidaddelectura.Views.Inicio"
+             BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <ScrollView>
+       <StackLayout HeightRequest="1000">
+        <Image
+            x:Name="HomeImageCohete"
+            Source="cohete.png"
+            Margin="0, 100, 0, 0"
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+        </Image>
+        <Button
+            Text="Medir Velocidad"
+            FontSize="16"
+            TextColor="#FFFFFF"
+            BackgroundColor="#d6450c"
+            BorderColor="#d6450c"
+            BorderWidth="1"
+            CornerRadius="20"
+            WidthRequest="300"
+            HorizontalOptions="Center"
+            Margin="0,50,0,0"
+            Clicked="BtnSeleccion_Clicked" >
+        </Button>
+    </StackLayout>
+   </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

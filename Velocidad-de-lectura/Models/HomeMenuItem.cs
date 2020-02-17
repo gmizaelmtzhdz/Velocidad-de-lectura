@@ -6,13 +6,16 @@ namespace Velocidad_de_lectura.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About
+        Inicio,
+        Configuracion,
+        Historial,
+        AcercaDe
     }
     public class HomeMenuItem
     {
         public MenuItemType Id { get; set; }
-
         public string Title { get; set; }
+        public string Icon { get; set; }
+        public string TextColor { get; set; }
     }
 }

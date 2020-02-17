@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Velocidaddelectura.Views.ConfiguracionEjercicio"
+             BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <ScrollView>
+       <StackLayout HeightRequest="1000">
+           <Grid Margin="0,0,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ProgressBar ProgressColor="Orange" Progress="0.5" Grid.Column="1" Grid.Row="0"></ProgressBar>
+                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
+                <Label FontSize="14" 
+                       Text="Configura tu ejercicio" 
+                       Grid.Column="1" 
+                       Grid.Row="2" 
+                       TextColor="#9f6934"  
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                
+            </Grid>
+        <Button
+            Text="Continuar"
+            FontSize="16"
+            TextColor="#FFFFFF"
+            BackgroundColor="#d6450c"
+            BorderColor="#d6450c"
+            BorderWidth="1"
+            CornerRadius="20"
+            WidthRequest="300"
+            HorizontalOptions="Center"
+            Margin="0,50,0,0"
+            Clicked="BtnSeleccion_Clicked" >
+        </Button>
+    </StackLayout>
+   </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -14,7 +14,14 @@ namespace Velocidad_de_lectura.iOS
         {
             // if you want to use a different Application Delegate class from "AppDelegate"
             // you can specify it here.
+
             UIApplication.Main(args, null, "AppDelegate");
+
+            UINavigationBar.Appearance.TintColor = UIColor.Red;
+            UIToolbar.Appearance.BarTintColor = UIColor.Red;
+            UIToolbar.Appearance.TintColor = UIColor.Red;
+            UIToolbar.Appearance.BackgroundColor = UIColor.Red;
+
         }
     }
 }
