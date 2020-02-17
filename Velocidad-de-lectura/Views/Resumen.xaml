@@ -2,12 +2,12 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    x:Class="Velocidaddelectura.Views.Categoria"
+    x:Class="Velocidaddelectura.Views.Resumen"
     BackgroundColor="#FFFFFF">
     <ContentPage.Content>
         <ScrollView>
-               <StackLayout Spacing="0">
-            <Grid Margin="0,0,0,30">
+            <StackLayout>
+                <Grid Margin="0,0,0,30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.2*"/>
                     <ColumnDefinition Width="*"/>
@@ -19,10 +19,17 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-                <ProgressBar ProgressColor="Orange" Progress="0.25" Grid.Column="1" Grid.Row="0"></ProgressBar>
-                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
+                <ProgressBar ProgressColor="Orange" Progress="1" Grid.Column="1" Grid.Row="0"></ProgressBar>
+                <Label FontSize="58"
+                       FontAttributes="None"
+                       Text="200" 
+                       Grid.Column="1" 
+                       Grid.Row="1" 
+                       TextColor="#000000"  
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
                 <Label FontSize="14" 
-                       Text="Selecciona una categoría" 
+                       Text="Palabras en 60 segundos" 
                        Grid.Column="1" 
                        Grid.Row="2" 
                        TextColor="#9f6934"  
@@ -30,19 +37,18 @@
                        HorizontalOptions="CenterAndExpand"></Label>
                 
             </Grid>
-
-            <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="#000000"/>
-            <ListView x:Name="ListCategorias" ItemsSource="{Binding NombreCategoria}" Margin="30, 0, 30, 30">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                                <ImageCell Height="100"  TextColor="#636363"
-                                     Text="{Binding Nombre}"
-                                     ImageSource="{Binding Imagen}">
-                                </ImageCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-        </ScrollView>
+                <Button
+                    Text="CONTINUAR"
+                    FontSize="16"
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#d6450c"
+                    BorderColor="#d6450c"
+                    BorderWidth="1"
+                    CornerRadius="20"
+                    WidthRequest="300"
+                    HorizontalOptions="Center"
+                    Margin="0,50,0,0"/>
+                </StackLayout>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

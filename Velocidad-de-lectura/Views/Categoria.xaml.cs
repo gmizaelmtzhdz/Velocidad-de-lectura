@@ -19,7 +19,7 @@ namespace Velocidaddelectura.Views
             var SelectedItem = e.SelectedItem as Models.CategoriaModel;
             if (SelectedItem != null)
             {
-                await Navigation.PushAsync(new Velocidad(SelectedItem));
+                await Navigation.PushAsync(new ConfiguracionEjercicio(SelectedItem));
                 ListCategorias.SelectedItem = null;
             }
         }
