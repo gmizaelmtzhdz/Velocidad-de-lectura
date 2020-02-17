@@ -4,53 +4,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Velocidad_de_lectura.ViewModels;
-using Velocidaddelectura.Views;
 
 namespace Velocidad_de_lectura.Views
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    // Learn more about making custom code visible in the Xamarin.Forms previewer
+    // by visiting https://aka.ms/xamarinforms-previewer
+    [DesignTimeVisible(false)]
     public partial class MenuPage : ContentPage
     {
-         RootPage root;
+        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
         List<HomeMenuItem> menuItems;
-        public MenuPage(RootPage root)
+        public MenuPage()
         {
-            this.root = root;
             InitializeComponent();
-
-            BindingContext = new BaseViewModel
-            {
-                Title = "Velocidad",
-                Icon = "burger_naranja.png"
-            };
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {
-                    Id = MenuItemType.Inicio,
-                    Title="Inicio",
-                    Icon ="home.png",
-                    TextColor="#636363"
-                },
-                new HomeMenuItem {
-                    Id = MenuItemType.Configuracion,
-                    Icon ="configuracion.png",
-                    Title="Configuración",
-                    TextColor="#636363"
-                },
-                new HomeMenuItem {
-                    Id = MenuItemType.Historial,
-                    Title="Historial",
-                    Icon ="historial.png",
-                    TextColor="#636363"
-                },
-                new HomeMenuItem {
-                    Id = MenuItemType.AcercaDe,
-                    Title="Acerca de",
-                    Icon ="info.png",
-                    TextColor="#636363"
-                }
+                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
             };
 
             ListViewMenu.ItemsSource = menuItems;
@@ -62,7 +33,7 @@ namespace Velocidad_de_lectura.Views
                     return;
 
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
-                await this.root.NavigateAsync((int)((HomeMenuItem)e.SelectedItem).Id);
+                await RootPage.NavigateFromMenu(id);
             };
         }
     }

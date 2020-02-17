@@ -21,20 +21,6 @@ namespace Velocidad_de_lectura.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
-        private string icon = null;
-        /// <summary>
-        /// Gets or sets the "Icon" of the viewmodel
-        /// </summary>
-        public const string IconPropertyName = "Icon";
-        public string Icon
-        {
-            get { return icon; }
-            set { SetProperty(ref icon, value); }
-        }
-
-
-
-
         string title = string.Empty;
         public string Title
         {
