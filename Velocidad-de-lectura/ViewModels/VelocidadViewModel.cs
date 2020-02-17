@@ -16,14 +16,59 @@ namespace Velocidaddelectura.ViewModels
         public static int Taps = 0;
         private String texto;
         private String[] arreglo;
-        private static int palabra_inicio = 0;
-        private static int palabra_fin = 0;
-        private static INavigation navigation;
+        private int palabra_inicio = 0;
+        private int palabra_fin = 0;
+        private INavigation navigation;
 
-        private static Stopwatch StopWatch = new Stopwatch();
-        private static bool tiempo_finalizo = false;
+        private Stopwatch StopWatch;
+        private bool tiempo_finalizo = false;
 
-        public static int TiempoConfigurado { get; set; }
+        public int TiempoConfigurado { get; set; }
+
+        
+
+        private string _CronometroVelocidad;
+        public string CronometroVelocidad
+        {
+            get
+            {
+                return _CronometroVelocidad;
+            }
+            set
+            {
+                _CronometroVelocidad = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _InstruccionVelocidad;
+        public string InstruccionVelocidad
+        {
+            get
+            {
+                return _InstruccionVelocidad;
+            }
+            set
+            {
+                _InstruccionVelocidad = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        private string _ImagenVelocidad;
+        public string ImagenVelocidad
+        {
+            get
+            {
+                return _ImagenVelocidad;
+            }
+            set
+            {
+                _ImagenVelocidad = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public VelocidadViewModel(INavigation nav)
@@ -40,75 +85,25 @@ namespace Velocidaddelectura.ViewModels
                     PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs(propertyName));
 
-        
-        static void Tiempo_Tick(object sender, EventArgs e)
-        {
 
-            Application.Current.MainPage.DisplayAlert("Cronómetro", "N", "Continuar");
-            //cada tick representa 100 milisegundos
-        }
 
-        private ICommand _navigationCommand = new Command<Span>(async (palabra) =>
-        {
-            switch (Taps)
-            {
-                case 0:
-                    Taps++;
-                    palabra.FontSize = 38;
-                    palabra.TextColor = Color.Green;
-                    palabra_inicio = Convert.ToInt32(palabra.StyleId);
-                    tiempo_finalizo = false;
-                    if (!StopWatch.IsRunning) { StopWatch.Start(); }
-                    Device.StartTimer(new TimeSpan(0, 0, 1), () => {
-                        if (StopWatch.IsRunning && StopWatch.Elapsed.Seconds >= TiempoConfigurado)
-                        {
-                            StopWatch.Stop();
-                            StopWatch.Reset();
-                            tiempo_finalizo = true;
-                            Application.Current.MainPage.DisplayAlert("Ejercicio Finalizado", "Selecciona la última palabra leída", "Ok");
-                        }
-                        return true;
-                    });
+        public ICommand TapCommand => new Command<Span>(async (palabra) =>
+            SpanClicked(palabra)
+        );
 
-                    break;
-                case 1:
-                    if(tiempo_finalizo)
-                    {
-                        Taps++;
-                        palabra.FontSize = 38;
-                        palabra.TextColor = Color.Red;
-                        palabra_fin = Convert.ToInt32(palabra.StyleId);
-                        int palabras_leidas = 0;
-                        if(palabra_fin<palabra_inicio)
-                        {
-                            palabras_leidas = palabra_inicio - palabra_fin + 1;
-                        }
-                        else
-                        {
-                            palabras_leidas = palabra_fin - palabra_inicio + 1;
-                        }
-                        await Application.Current.MainPage.DisplayAlert("Palabras", "Cantidad de palabras leidas: " + palabras_leidas, "Continuar");
-                        navigation.PushAsync(new Resumen(1, 2));
-                    }
-                    break;
-                default:
-                    Taps = 0;
-                    palabra_inicio = 0;
-                    palabra_fin = 0;
-                    break;
-            }
-        });
         public FormattedString GenerarTextoSpan()
         {
             FormattedString formattedString = new FormattedString();
             Span span = null;
-            for (var i = 0; i < 200; i++)
+            int limite = arreglo.Length>250?250:arreglo.Length;
+
+            for (var i = 0; i < limite; i++)
             {
                 span = new Span {Text = arreglo[i] + "   " };
                 span.StyleId = Convert.ToString(i + 1);
                 span.GestureRecognizers.Add(new TapGestureRecognizer()
                 {
-                    Command = _navigationCommand,
+                    Command = TapCommand,
                     CommandParameter = span
                 });
 
@@ -122,6 +117,61 @@ namespace Velocidaddelectura.ViewModels
             get
             {
                 return GenerarTextoSpan();
+            }
+        }
+        public void SpanClicked(object sender)
+        {
+            Span palabra = (Span)sender;
+            switch (Taps)
+            {
+                case 0:
+                    Taps++;
+                    palabra.FontSize = 38;
+                    palabra.TextColor = Color.Green;
+                    palabra_inicio = Convert.ToInt32(palabra.StyleId);
+                    tiempo_finalizo = false;
+                    StopWatch = new Stopwatch();
+                    if (!StopWatch.IsRunning) { StopWatch.Start(); }
+                    else { StopWatch.Stop(); StopWatch.Reset();}
+                    Device.StartTimer(new TimeSpan(0, 0, 1), () => {
+                        CronometroVelocidad = StopWatch.Elapsed.Seconds+"/"+ TiempoConfigurado + " segundos";
+                        if (StopWatch.IsRunning && StopWatch.Elapsed.Seconds >= TiempoConfigurado)
+                        {
+                            StopWatch.Stop();
+                            StopWatch.Reset();
+                            tiempo_finalizo = true;
+                            Application.Current.MainPage.DisplayAlert("Ejercicio Finalizado", "Selecciona la última palabra leída", "Ok");
+                        }
+                        return true;
+                    });
+                    ImagenVelocidad = "cronometro.png";
+                    InstruccionVelocidad = "Al finalizar selecciona la última palabra leída";
+                    break;
+                case 1:
+                    if (tiempo_finalizo)
+                    {
+                        Taps++;
+                        palabra.FontSize = 38;
+                        palabra.TextColor = Color.Red;
+                        palabra_fin = Convert.ToInt32(palabra.StyleId);
+                        int palabras_leidas = 0;
+                        if (palabra_fin < palabra_inicio)
+                        {
+                            palabras_leidas = palabra_inicio - palabra_fin + 1;
+                        }
+                        else
+                        {
+                            palabras_leidas = palabra_fin - palabra_inicio + 1;
+                        }
+                        Application.Current.MainPage.DisplayAlert("Palabras", "Cantidad de palabras leidas: " + palabras_leidas, "Continuar");
+                        navigation.PushAsync(new Resumen(1, 2));
+                    }
+                    break;
+                default:
+                    Taps = 0;
+                    palabra_inicio = 0;
+                    palabra_fin = 0;
+                    break;
             }
         }
     }

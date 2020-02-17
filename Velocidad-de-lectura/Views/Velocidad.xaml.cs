@@ -15,7 +15,12 @@ namespace Velocidaddelectura.Views
         {
             InitializeComponent();
             VelocidadViewModel velocidadViewModel = new VelocidadViewModel(Navigation);
-            VelocidadViewModel.TiempoConfigurado = 30; //segundos
+            velocidadViewModel.ImagenVelocidad = "cohete_solo.png";
+            velocidadViewModel.TiempoConfigurado = 30; //segundos
+            velocidadViewModel.InstruccionVelocidad = "Selecciona una palabra para iniciar";
+            velocidadViewModel.CronometroVelocidad = "";
+            
+
 
             this.BindingContext = velocidadViewModel;
         }
