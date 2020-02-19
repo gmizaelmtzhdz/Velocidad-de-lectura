@@ -11,7 +11,7 @@ namespace Velocidaddelectura.Views
 {
     public partial class Velocidad : ContentPage
     {
-        public Velocidad(CategoriaModel categoria)
+        public Velocidad(Ejercicio ejercicio)
         {
             InitializeComponent();
             VelocidadViewModel velocidadViewModel = new VelocidadViewModel(Navigation);
