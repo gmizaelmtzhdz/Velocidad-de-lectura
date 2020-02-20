@@ -13,7 +13,9 @@ namespace Velocidaddelectura.Views
         {
             InitializeComponent();
             this.ejercicio = ejercicio;
-            Application.Current.MainPage.DisplayAlert("Palabras", ""+(new ExtraccionContenidoViewModel()).GetContenido(""), "Continuar");
+            this.ejercicio.Segundos = 30;
+            this.ejercicio.Texto = (new ExtraccionContenidoViewModel()).GetContenido("javag");
+            Application.Current.MainPage.DisplayAlert("Palabras", this.ejercicio.Texto, "Continuar");
 
         }
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
