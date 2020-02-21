@@ -14,7 +14,7 @@ namespace Velocidaddelectura.Views
             InitializeComponent();
             this.ejercicio = ejercicio;
             this.ejercicio.Segundos = 30;
-            this.ejercicio.Texto = (new ExtraccionContenidoViewModel()).GetContenido("javag");
+            this.ejercicio.Texto = (new ExtraccionContenidoViewModel()).GetContenido(this.ejercicio.Categoria);
             Application.Current.MainPage.DisplayAlert("Palabras", this.ejercicio.Texto, "Continuar");
 
         }
