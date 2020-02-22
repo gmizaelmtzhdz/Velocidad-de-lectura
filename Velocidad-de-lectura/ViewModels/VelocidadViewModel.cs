@@ -127,7 +127,7 @@ namespace Velocidaddelectura.ViewModels
             {
                 case 0:
                     Taps++;
-                    palabra.FontSize = 38;
+                    //palabra.FontSize = 38;
                     palabra.TextColor = Color.Green;
                     palabra_inicio = Convert.ToInt32(palabra.StyleId);
                     tiempo_finalizo = false;
