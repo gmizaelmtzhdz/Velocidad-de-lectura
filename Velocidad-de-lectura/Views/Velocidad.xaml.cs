@@ -11,12 +11,11 @@ namespace Velocidaddelectura.Views
 {
     public partial class Velocidad : ContentPage
     {
-        public Velocidad(CategoriaModel categoria)
+        public Velocidad(Ejercicio ejercicio)
         {
             InitializeComponent();
-            VelocidadViewModel velocidadViewModel = new VelocidadViewModel(Navigation);
+            VelocidadViewModel velocidadViewModel = new VelocidadViewModel(Navigation, ejercicio);
             velocidadViewModel.ImagenVelocidad = "cohete_solo.png";
-            velocidadViewModel.TiempoConfigurado = 30; //segundos
             velocidadViewModel.InstruccionVelocidad = "Selecciona una palabra para iniciar";
             velocidadViewModel.CronometroVelocidad = "";
             

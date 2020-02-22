@@ -20,16 +20,16 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <ProgressBar ProgressColor="Orange" Progress="1" Grid.Column="1" Grid.Row="0"></ProgressBar>
-                <Label FontSize="58"
+                <Label x:Name="LblCantidadPalabras" FontSize="58"
                        FontAttributes="None"
-                       Text="200" 
+                       Text="000" 
                        Grid.Column="1" 
                        Grid.Row="1" 
                        TextColor="#000000"  
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
-                <Label FontSize="14" 
-                       Text="Palabras en 60 segundos" 
+                <Label x:Name="LblResumen" FontSize="14" 
+                       Text="Palabras en  segundos" 
                        Grid.Column="1" 
                        Grid.Row="2" 
                        TextColor="#9f6934"  

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Velocidaddelectura.Models;
 using Velocidaddelectura.ViewModels;
 using Xamarin.Forms;
 
@@ -19,7 +20,10 @@ namespace Velocidaddelectura.Views
             var SelectedItem = e.SelectedItem as Models.CategoriaModel;
             if (SelectedItem != null)
             {
-                await Navigation.PushAsync(new ConfiguracionEjercicio(SelectedItem));
+                Ejercicio ejercicio=new Ejercicio();
+                ejercicio.Categoria = SelectedItem.Nombre;
+
+                await Navigation.PushAsync(new ConfiguracionEjercicio(ejercicio));
                 ListCategorias.SelectedItem = null;
             }
         }
