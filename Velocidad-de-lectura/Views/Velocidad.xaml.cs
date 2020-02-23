@@ -14,6 +14,7 @@ namespace Velocidaddelectura.Views
         public Velocidad(Ejercicio ejercicio)
         {
             InitializeComponent();
+            LblTexto.FontSize = ejercicio.TamanoFuente;
             VelocidadViewModel velocidadViewModel = new VelocidadViewModel(Navigation, ejercicio);
             velocidadViewModel.ImagenVelocidad = "cohete_solo.png";
             velocidadViewModel.InstruccionVelocidad = "Selecciona una palabra para iniciar";

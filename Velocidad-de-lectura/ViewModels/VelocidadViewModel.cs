@@ -102,6 +102,7 @@ namespace Velocidaddelectura.ViewModels
             {
                 span = new Span {Text = arreglo[i] + "   " };
                 span.StyleId = Convert.ToString(i + 1);
+                span.FontSize = ejercicio.TamanoFuente;
                 span.GestureRecognizers.Add(new TapGestureRecognizer()
                 {
                     Command = TapCommand,
@@ -127,7 +128,7 @@ namespace Velocidaddelectura.ViewModels
             {
                 case 0:
                     Taps++;
-                    //palabra.FontSize = 38;
+                    palabra.FontSize = ejercicio.TamanoFuente+2;
                     palabra.TextColor = Color.Green;
                     palabra_inicio = Convert.ToInt32(palabra.StyleId);
                     tiempo_finalizo = false;
@@ -135,15 +136,24 @@ namespace Velocidaddelectura.ViewModels
                     if (!StopWatch.IsRunning) { StopWatch.Start(); }
                     else { StopWatch.Stop(); StopWatch.Reset();}
                     Device.StartTimer(new TimeSpan(0, 0, 1), () => {
-                        CronometroVelocidad = StopWatch.Elapsed.Seconds+"/"+ ejercicio.Segundos + " segundos";
-                        if (StopWatch.IsRunning && StopWatch.Elapsed.Seconds >= ejercicio.Segundos)
+                        if(tiempo_finalizo)
                         {
-                            StopWatch.Stop();
-                            StopWatch.Reset();
-                            tiempo_finalizo = true;
-                            Application.Current.MainPage.DisplayAlert("Ejercicio Finalizado", "Selecciona la última palabra leída", "Ok");
+                            InstruccionVelocidad = "Selecciona la última palabra leída";
+                            CronometroVelocidad = ejercicio.Segundos + "/" + ejercicio.Segundos + " segundos";
                         }
+                        else
+                        {
+                            CronometroVelocidad = (StopWatch.ElapsedMilliseconds / 1000) + "/" + ejercicio.Segundos + " segundos";
+                            if (StopWatch.IsRunning && (StopWatch.ElapsedMilliseconds / 1000) >= ejercicio.Segundos)
+                            {
+                                Application.Current.MainPage.DisplayAlert("Ejercicio Finalizado", "Selecciona la última palabra leída", "Ok");
+                                StopWatch.Stop();
+                                StopWatch.Reset();
+                                tiempo_finalizo = true;
+                            }
+                        }   
                         return true;
+
                     });
                     ImagenVelocidad = "cronometro.png";
                     InstruccionVelocidad = "Al finalizar selecciona la última palabra leída";
@@ -152,7 +162,7 @@ namespace Velocidaddelectura.ViewModels
                     if (tiempo_finalizo)
                     {
                         Taps++;
-                        palabra.FontSize = 38;
+                        palabra.FontSize = ejercicio.TamanoFuente + 2;
                         palabra.TextColor = Color.Red;
                         palabra_fin = Convert.ToInt32(palabra.StyleId);
                         int palabras_leidas = 0;
