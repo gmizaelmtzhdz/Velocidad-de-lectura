@@ -15,5 +15,15 @@ namespace Velocidaddelectura.Views
             LblCantidadPalabras.Text = ""+ejercicio.PalabrasLeidas;
             LblResumen.Text = "Palabras en "+ejercicio.Segundos+" segundos";
         }
+        private void BtnSeleccion_Clicked(object sender, EventArgs e)
+        {
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.PushAsync(new Inicio(), true);
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+
+        }
     }
 }
