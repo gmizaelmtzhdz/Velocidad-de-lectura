@@ -39,7 +39,7 @@
             </Grid>
 
 
-            <Label FormattedText="{Binding ContenedorTexto}" Margin="10,0,10,0" HorizontalTextAlignment="Start" FontSize="28"/>
+            <Label x:Name="LblTexto" FormattedText="{Binding ContenedorTexto}" Margin="10,0,10,0" HorizontalTextAlignment="Start" FontSize="28"/>
 
                 
 
