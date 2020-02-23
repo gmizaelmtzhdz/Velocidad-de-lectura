@@ -7,7 +7,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Grid Margin="0,0,0,30">
+                <Grid Margin="0,30,0,30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.2*"/>
                     <ColumnDefinition Width="*"/>
@@ -17,7 +17,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="100"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
                 </Grid.RowDefinitions>
                 <ProgressBar ProgressColor="Orange" Progress="1" Grid.Column="1" Grid.Row="0"></ProgressBar>
                 <Label x:Name="LblCantidadPalabras" FontSize="58"
@@ -25,7 +25,7 @@
                        Text="000" 
                        Grid.Column="1" 
                        Grid.Row="1" 
-                       TextColor="#000000"  
+                       TextColor="#414a4c"  
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
                 <Label x:Name="LblResumen" FontSize="14" 
@@ -35,7 +35,15 @@
                        TextColor="#9f6934"  
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
-                
+                <Image
+                    Source="flama.jpg"
+                    Margin="0, 0, 0, 0"
+                    HeightRequest="60"
+                    Grid.Column="1" 
+                    Grid.Row="3" 
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                </Image>
             </Grid>
                 <Button
                     Text="CONTINUAR"
@@ -47,7 +55,8 @@
                     CornerRadius="20"
                     WidthRequest="300"
                     HorizontalOptions="Center"
-                    Margin="0,50,0,0"/>
+                    Clicked="BtnSeleccion_Clicked"
+                    Margin="0,0,0,0"/>
                 </StackLayout>
             </ScrollView>
     </ContentPage.Content>

@@ -145,6 +145,7 @@
     <BundleResource Include="Resources\tecnologia.png" />
     <BundleResource Include="Resources\mascota.png" />
     <BundleResource Include="Resources\cronometro.png" />
+    <BundleResource Include="Resources\flama.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

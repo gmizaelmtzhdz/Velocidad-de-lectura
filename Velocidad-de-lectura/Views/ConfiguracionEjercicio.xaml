@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <ScrollView>
        <StackLayout HeightRequest="1000">
-           <Grid Margin="0,0,0,30">
+           <Grid Margin="0,30,0,30">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="0.2*"/>
                     <ColumnDefinition Width="*"/>
