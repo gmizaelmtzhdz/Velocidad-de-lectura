@@ -3,6 +3,22 @@
              x:Class="Velocidaddelectura.Views.Acerca"
              BackgroundColor="#FFFFFF">
     <ContentPage.Content>
-        <Label>Acerca de</Label>
+         <ScrollView>
+       <StackLayout HeightRequest="1000">
+        <Image
+            x:Name="HomeImageCohete"
+            Source="cohete.png"
+            Margin="0, 100, 0, 0"
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            VerticalOptions="Center">
+        </Image>
+        <Label
+            Margin="20,20,20,0"
+            FontSize="18"
+            Text="Herramienta que permite ser de apoyo en la medición de velocidad de palabras por minuto y/o velocidad de lectura, etc. ">
+        </Label>
+    </StackLayout>
+   </ScrollView>
     </ContentPage.Content>
 </ContentPage>
