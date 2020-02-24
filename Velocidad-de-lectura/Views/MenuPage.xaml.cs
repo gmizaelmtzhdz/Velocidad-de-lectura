@@ -34,9 +34,9 @@ namespace Velocidad_de_lectura.Views
                     TextColor="#636363"
                 },
                 new HomeMenuItem {
-                    Id = MenuItemType.Configuracion,
-                    Icon ="configuracion.png",
-                    Title="Configuración",
+                    Id = MenuItemType.Cronometro,
+                    Icon ="cronometro_menu.png",
+                    Title="Cronómetro",
                     TextColor="#636363"
                 },
                 new HomeMenuItem {

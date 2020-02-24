@@ -7,7 +7,7 @@ namespace Velocidad_de_lectura.Models
     public enum MenuItemType
     {
         Inicio,
-        Configuracion,
+        Cronometro,
         Historial,
         AcercaDe
     }
