@@ -146,6 +146,7 @@
     <BundleResource Include="Resources\mascota.png" />
     <BundleResource Include="Resources\cronometro.png" />
     <BundleResource Include="Resources\flama.jpg" />
+    <BundleResource Include="Resources\cronometro_menu.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -163,7 +164,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Velocidad-de-lectura\Velocidad-de-lectura.csproj">
-      <Project>{64CD4F9B-F4B2-4C3E-81D7-A6B53218AC65}</Project>
+      <Project>{ED979428-034A-4094-BAD4-44BE171192FF}</Project>
       <Name>Velocidad-de-lectura</Name>
     </ProjectReference>
   </ItemGroup>

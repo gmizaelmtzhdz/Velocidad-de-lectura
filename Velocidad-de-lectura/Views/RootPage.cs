@@ -56,8 +56,8 @@ namespace Velocidaddelectura.Views
                     case (int)MenuItemType.Inicio:
                         Pages.Add(id, new VelocidadNavigationPage(new Inicio()));
                         break;
-                    case (int)MenuItemType.Configuracion:
-                        Pages.Add(id, new VelocidadNavigationPage(new Configuracion()));
+                    case (int)MenuItemType.Cronometro:
+                        Pages.Add(id, new VelocidadNavigationPage(new Cronometro()));
                         break;
                     case (int)MenuItemType.Historial:
                         Pages.Add(id, new VelocidadNavigationPage(new Historial()));
