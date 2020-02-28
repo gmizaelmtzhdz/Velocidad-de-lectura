@@ -7,14 +7,25 @@ namespace Velocidaddelectura.Views
 {
     public partial class Inicio : ContentPage
     {
+        private bool isBusy;
+        public bool IsBusy
+        {
+            get { return isBusy; }
+            set
+            {
+                isBusy = value;
+                OnPropertyChanged();
+            }
+        }
         public Inicio()
         {
             InitializeComponent();
+            IsBusy = true;
         }
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Categoria(), true);
-
+            IsBusy = true;
+           // Navigation.PushAsync(new Categoria(), true);
         }
     }
 }
