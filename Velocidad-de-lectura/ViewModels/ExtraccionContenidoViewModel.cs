@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Velocidaddelectura.Services;
 using Xamarin.Forms;
@@ -14,14 +15,14 @@ namespace Velocidaddelectura.ViewModels
         {
 
         }
-        public string GetContenido(string categoria)
+        public async Task<string> GetContenidoAsync(string categoria)
         {
             string contenido = "";
             try
             {
                 WebClient client = new WebClient();
                 string palabra_clave = ExtraccionContenidoService.GetPalabraClave(categoria);
-                using (Stream stream = client.OpenRead("http://es.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&titles=" + palabra_clave))
+                using (Stream stream =  client.OpenRead("http://es.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&explaintext=1&titles=" + palabra_clave))
                 using (StreamReader reader = new StreamReader(stream))
                 {
                     JsonSerializer ser = new JsonSerializer();

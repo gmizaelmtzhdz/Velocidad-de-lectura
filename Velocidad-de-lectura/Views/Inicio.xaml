@@ -32,24 +32,25 @@
 
 
             <!--   Inicio Modal de cargando...  -->
-            <ContentView
-                                      BackgroundColor="#000000"
-                                      IsVisible="{Binding IsBusy}"
-                                      Opacity="0.1" />
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="False"
+                         Opacity="0.1" />
             <Frame
-                                BackgroundColor="Transparent"
-                                HorizontalOptions="CenterAndExpand"
-                                IsVisible="{Binding IsBusy}"
-                                VerticalOptions="CenterAndExpand">
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
                 <StackLayout>
                     <ActivityIndicator
-                                                    IsRunning="{Binding IsBusy}"
-                                                    IsVisible="{Binding IsBusy}"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    Color="Black" />
+                        x:Name="ActivityEspera"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
                 </StackLayout>
             </Frame>
-            
             <!--   Fin Modal de cargando...  -->
 
 

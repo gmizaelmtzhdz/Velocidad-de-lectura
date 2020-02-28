@@ -69,15 +69,16 @@ namespace Velocidaddelectura.ViewModels
                 OnPropertyChanged();
             }
         }
-
-
         public VelocidadViewModel(INavigation nav, Ejercicio ejercicio)
         {
             this.ejercicio = ejercicio;
             Taps = 0;
-            texto = ejercicio.Texto;
-            arreglo = texto.Split(' ');
-            navigation = nav;
+            if(ejercicio.Texto!=null)
+            {
+                texto = ejercicio.Texto;
+                arreglo = texto.Split(' ');
+                navigation = nav;
+            }
         }
 
         private void OnPropertyChanged(

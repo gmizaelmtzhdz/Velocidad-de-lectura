@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Velocidaddelectura.Models;
 using Velocidaddelectura.Services;
 using Velocidaddelectura.ViewModels;
@@ -15,10 +16,15 @@ namespace Velocidaddelectura.Views
             InitializeComponent();
             this.ejercicio = ejercicio;
             this.ejercicio.Segundos = 0;
-            this.ejercicio.Texto = (new ExtraccionContenidoViewModel()).GetContenido(this.ejercicio.Categoria);
-            Application.Current.MainPage.DisplayAlert("Palabras", this.ejercicio.Texto, "Continuar");
 
+            ViewEspera.IsVisible = true;
+            FrameEspera.IsVisible = true;
+            ActivityEspera.IsVisible = true;
+            ActivityEspera.IsRunning = true;
+
+            Device.BeginInvokeOnMainThread(Extraccion);
         }
+
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
             switch(PickerTiempo.SelectedIndex)
@@ -48,14 +54,61 @@ namespace Velocidaddelectura.Views
                         this.ejercicio.TamanoFuente = 34;
                 break;
             }
-            Navigation.PushAsync(new Velocidad(ejercicio), true);
+
+            ViewEspera.IsVisible = true;
+            FrameEspera.IsVisible = true;
+            ActivityEspera.IsVisible = true;
+            ActivityEspera.IsRunning = true;
+
+            Device.BeginInvokeOnMainThread(Lanzar);
         }
-        protected override void OnAppearing()
+        private async void Lanzar()
         {
-            base.OnAppearing();
+            try
+            {
+                await LanzarAsync();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        private async Task LanzarAsync()
+        {
+            await Navigation.PushAsync(new Velocidad(ejercicio));
+
+            ViewEspera.IsVisible = false;
+            FrameEspera.IsVisible = false;
+            ActivityEspera.IsVisible = false;
+            ActivityEspera.IsRunning = false;
+        }
+        private async void Extraccion()
+        {
+            try
+            {
+                await ExtraccionAsync();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        private async Task ExtraccionAsync()
+        {
             LlenarEtiquetasTiempo();
             LlenarEtiquetasTamanoLetra();
+
+            this.ejercicio.Texto = await (new ExtraccionContenidoViewModel()).GetContenidoAsync(this.ejercicio.Categoria);
+
+
+            ViewEspera.IsVisible = false;
+            FrameEspera.IsVisible = false;
+            ActivityEspera.IsVisible = false;
+            ActivityEspera.IsRunning = false;
         }
+
         private void LlenarEtiquetasTiempo()
         {
             var etiquetas = new List<string>();

@@ -4,6 +4,7 @@
              x:Class="Velocidaddelectura.Views.ConfiguracionEjercicio"
              BackgroundColor="#FFFFFF">
     <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ScrollView>
        <StackLayout HeightRequest="1000">
            <Grid Margin="0,30,0,30">
@@ -73,5 +74,33 @@
             </Grid>
     </StackLayout>
    </ScrollView>
+
+
+
+        <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="False"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+
+
+            </Grid>
+
     </ContentPage.Content>
 </ContentPage>

@@ -1,31 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Velocidaddelectura.Views
 {
     public partial class Inicio : ContentPage
     {
-        private bool isBusy;
-        public bool IsBusy
-        {
-            get { return isBusy; }
-            set
-            {
-                isBusy = value;
-                OnPropertyChanged();
-            }
-        }
         public Inicio()
         {
             InitializeComponent();
-            IsBusy = true;
+            
+
         }
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
-            IsBusy = true;
-           // Navigation.PushAsync(new Categoria(), true);
+            ViewEspera.IsVisible = true;
+            FrameEspera.IsVisible = true;
+            ActivityEspera.IsVisible = true;
+            ActivityEspera.IsRunning = true;
+
+            Device.BeginInvokeOnMainThread(Lanzar);
+        }
+        private async void Lanzar()
+        {
+            try
+            {
+                await LanzarAsync();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+
+        private async Task LanzarAsync()
+        {
+            await Navigation.PushAsync(new Categoria());
+
+            ViewEspera.IsVisible = false;
+            FrameEspera.IsVisible = false;
+            ActivityEspera.IsVisible = false;
+            ActivityEspera.IsRunning = false;
         }
     }
 }
