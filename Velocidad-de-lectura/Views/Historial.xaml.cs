@@ -15,6 +15,12 @@ namespace Velocidaddelectura.Views
         {
             InitializeComponent();
             this.BindingContext = this;
+
+            ViewEspera.IsVisible = true;
+            FrameEspera.IsVisible = true;
+            ActivityEspera.IsVisible = true;
+            ActivityEspera.IsRunning = true;
+
             GetHistoricoCommand = new Command(async () => await CargaItems(), () => !IsBusy);
             GetHistoricoCommand.Execute(null);
         }
@@ -100,6 +106,11 @@ namespace Velocidaddelectura.Views
                         HistoricoGrid.Children.Add(lblNoHayHistorial, 1, 0);
                     }
                 }
+                ViewEspera.IsVisible = false;
+                FrameEspera.IsVisible = false;
+                ActivityEspera.IsVisible = false;
+                ActivityEspera.IsRunning = false;
+
                 this.IsBusy = false;
             }
         }

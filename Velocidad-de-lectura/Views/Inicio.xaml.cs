@@ -10,7 +10,6 @@ namespace Velocidaddelectura.Views
         public Inicio()
         {
             InitializeComponent();
-            
 
         }
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
