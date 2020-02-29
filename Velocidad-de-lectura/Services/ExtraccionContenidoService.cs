@@ -17,8 +17,8 @@ namespace Velocidaddelectura.Services
             {
                 case "Moda y belleza":
                     list.Add("Moda");
-                    list.Add("Elegancia");
-                    list.Add("Modista");
+                    list.Add("Belleza");
+                    list.Add("Estética");
                     resultado = Convert.ToString(list[random.Next(0, list.Count)]);
                     break;
                 case "Cuentos infantiles":
@@ -52,8 +52,8 @@ namespace Velocidaddelectura.Services
                     resultado = Convert.ToString(list[random.Next(0, list.Count)]);
                     break;
                 case "Negocios":
-                    list.Add("Negocios");
-                    list.Add("Empresa");
+                    list.Add("Negociación");
+                    list.Add("Liderazgo");
                     list.Add("Emprendimiento");
                     resultado = Convert.ToString(list[random.Next(0, list.Count)]);
                     break;
@@ -88,9 +88,9 @@ namespace Velocidaddelectura.Services
                     resultado = Convert.ToString(list[random.Next(0, list.Count)]);
                     break;
                 case "Mascotas":
-                    list.Add("perro");
-                    list.Add("gato");
-                    list.Add("conejo");
+                    list.Add("Animalia");
+                    list.Add("Vertebrata");
+                    list.Add("Arachnida");
                     resultado = Convert.ToString(list[random.Next(0, list.Count)]);
                     break;
                 case "Música":
