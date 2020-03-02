@@ -35,6 +35,7 @@ namespace Velocidaddelectura.Services
                 }catch(Exception e)
                 {
                     historico = new List<Ejercicio>();
+                    Console.Write(e);
                 }
             }
             return historico;

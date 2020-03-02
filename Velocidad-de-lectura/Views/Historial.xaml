@@ -9,9 +9,9 @@
                 <StackLayout>
                     <Grid Margin="0,30,0,20">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.1*"/>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.1*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="100"/>
@@ -42,30 +42,32 @@
                     </ScrollView>
                 </StackLayout>
             </ScrollView>
-            <!--    C O D I G O   M A E S T R O  -->
-            <ContentView x:Name="bgLayer"
-                                      BackgroundColor="#000000"
-                                      IsVisible="{Binding IsBusy}"
-                                      Opacity="0.2" />
-            <Frame x:Name="frameLayer"
-                                BackgroundColor="#FFFFFF"
-                                HorizontalOptions="CenterAndExpand"
-                                IsVisible="{Binding IsBusy}"
-                                VerticalOptions="CenterAndExpand">
+
+             <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="False"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
                 <StackLayout>
-                    <ActivityIndicator x:Name="indicatorLoader"
-                                                    BackgroundColor="Transparent"
-                                                    IsRunning="{Binding IsBusy}"
-                                                    IsVisible="{Binding IsBusy}"
-                                                    VerticalOptions="CenterAndExpand"
-                                                    Color="#607D8B" />
-                    <Label HorizontalTextAlignment="Center"
-                                        Text="Cargando..."
-                                        TextColor="#000000"
-                                        XAlign="Center" />
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
                 </StackLayout>
             </Frame>
-        </Grid>
+            <!--   Fin Modal de cargando...  -->
+
+
+
+            </Grid>
 
     </ContentPage.Content>
 </ContentPage>

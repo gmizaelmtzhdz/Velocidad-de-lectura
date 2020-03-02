@@ -19,23 +19,23 @@ namespace Velocidaddelectura.Views
             LblCantidadPalabras.Text = ""+ejercicio.PalabrasLeidas;
             LblResumen.Text = "Palabras en "+ejercicio.Segundos+" segundos";
 
-            GuardarHistorialCommand = new Command(async () => GuardarHistorial(), () => !IsBusy);
+            GuardarHistorialCommand = new Command(async () => await GuardarHistorialAsync(), () => !IsBusy);
             GuardarHistorialCommand.Execute(null);
         }
-        private void GuardarHistorial()
+        private async Task GuardarHistorialAsync()
         {
             GuardarInformacionServices guardarInformacionServices = new GuardarInformacionServices();
-            guardarInformacionServices.GuardarInformacion(this.ejercicio);
+            await guardarInformacionServices.GuardarInformacion(this.ejercicio);
         }
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
+            Navigation.PopAsync(false);
+            Navigation.PopAsync(false);
+            Navigation.PopAsync(false);
+            Navigation.PopAsync(false);
             Navigation.PushAsync(new Inicio(), true);
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 1]);
-
+            Navigation.PopAsync(false);
+            Navigation.PopAsync(false);
         }
     }
 }

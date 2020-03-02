@@ -3,6 +3,8 @@
              x:Class="Velocidaddelectura.Views.Velocidad"
              BackgroundColor="#FFFFFF">
     <ContentPage.Content>
+        
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <ScrollView>
             <StackLayout>
                 <Grid Margin="0,30,0,30">
@@ -47,5 +49,29 @@
 
             </StackLayout>
         </ScrollView>
+            <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="{Binding IsBusy}"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+
+
+            </Grid>
     </ContentPage.Content>
 </ContentPage>

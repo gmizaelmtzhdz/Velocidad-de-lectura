@@ -3,6 +3,7 @@
              x:Class="Velocidaddelectura.Views.Acerca"
              BackgroundColor="#FFFFFF">
     <ContentPage.Content>
+         <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
          <ScrollView>
        <StackLayout HeightRequest="1000">
         <Image
@@ -16,9 +17,34 @@
         <Label
             Margin="20,20,20,0"
             FontSize="18"
-            Text="Herramienta que permite ser de apoyo en la medición de velocidad de palabras por minuto y/o velocidad de lectura, etc. ">
+            Text="Herramienta de apoyo en la medición de velocidad de palabras por minuto y/o velocidad de lectura, etc. ">
         </Label>
     </StackLayout>
    </ScrollView>
+              <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="False"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+
+
+
+            </Grid>
     </ContentPage.Content>
 </ContentPage>
