@@ -18,11 +18,11 @@
                         <color key="backgroundColor" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace" white="1" alpha="1"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="589" translatesAutoresizingMaskIntoConstraints="NO" image="cohete_solo.png">
-                                <rect key="frame" x="117" y="244.5" width="192" height="247"/>
+                                <rect key="frame" x="165" y="306.5" width="96" height="123.5"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="1"/>
                                 <constraints>
-                                    <constraint id="1309" firstAttribute="width" constant="192"/>
-                                    <constraint id="1310" firstAttribute="height" constant="247"/>
+                                    <constraint id="1309" firstAttribute="width" constant="96"/>
+                                    <constraint id="1310" firstAttribute="height" constant="123.5"/>
                                 </constraints>
                             </imageView>
                         </subviews>

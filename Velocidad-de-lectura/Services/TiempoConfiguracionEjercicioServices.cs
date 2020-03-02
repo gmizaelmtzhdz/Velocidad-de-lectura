@@ -24,7 +24,7 @@ namespace Velocidaddelectura.Services
             }
             catch (Exception ex)
             {
-                
+                Console.Write(ex);   
             }
             return tiempos;
         }

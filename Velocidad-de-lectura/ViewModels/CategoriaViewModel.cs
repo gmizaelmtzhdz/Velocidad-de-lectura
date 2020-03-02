@@ -1,23 +1,97 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using Velocidaddelectura.Models;
+using Velocidaddelectura.Views;
 using Xamarin.Forms;
 
 namespace Velocidaddelectura.ViewModels
 {
     public class CategoriaViewModel : INotifyPropertyChanged
     {
+        private Ejercicio ejercicio;
         public ObservableCollection<CategoriaModel> NombreCategoria { get; set; }
         public INavigation Navigation { get; set; }
-        public event PropertyChangedEventHandler PropertyChanged;
+        public Command GetCategoriasCommand { get; set; }
 
         public CategoriaViewModel(INavigation navigation)
         {
             Navigation = navigation;
+
+            this.ejercicio = new Ejercicio();
             NombreCategoria = new ObservableCollection<CategoriaModel>();
 
+            GetCategoriasCommand = new Command(async () => await LlenarCategorias());
+            GetCategoriasCommand.Execute(null);
+        }
+        public CategoriaModel _selectedItem;
+        public CategoriaModel SelectedItem
+        {
+            get
+            {
+                return _selectedItem;
+            }
+            set
+            {
+                _selectedItem = value;
+                IsBusy = true;
+                if (_selectedItem == null)
+                {
+                    IsBusy = false;
+                    return;
+                }
+                ejercicio.Categoria = _selectedItem.Nombre;
+                Device.BeginInvokeOnMainThread(Lanzar);
+                SelectedItem = null;
+            }
+        }
+        private async void Lanzar()
+        {
+            try
+            {
+                await LanzarAsync();
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+            }
+        }
 
+        private async Task LanzarAsync()
+        {
+            await Navigation.PushAsync(new ConfiguracionEjercicio(ejercicio));
+
+            IsBusy = false;
+        }
+
+
+        private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var handle = PropertyChanged;
+            if (handle != null)
+                handle(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private bool Busy;
+        public bool IsBusy
+        {
+            get
+            {
+                return Busy;
+            }
+            set
+            {
+                Busy = value;
+                RaisePropertyChanged("IsBusy");
+            }
+        }
+        public async Task LlenarCategorias()
+        {
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
@@ -48,79 +122,92 @@ namespace Velocidaddelectura.ViewModels
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id=1,
-                Nombre="Arte",
-                Imagen = "arte.png", Descripcion="Arte"
+                Id = 1,
+                Nombre = "Arte",
+                Imagen = "arte.png",
+                Descripcion = "Arte"
             });
-            
+
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 1,
                 Nombre = "Baile",
-                Imagen = "baile.png", Descripcion = "Baile"
+                Imagen = "baile.png",
+                Descripcion = "Baile"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 1,
                 Nombre = "Negocios",
-                Imagen = "negocios.png", Descripcion = "Negocios"
+                Imagen = "negocios.png",
+                Descripcion = "Negocios"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 1,
                 Nombre = "Ciencia Ficción",
-                Imagen = "ciencia_ficcion.png", Descripcion = "Ciencia Ficción"
+                Imagen = "ciencia_ficcion.png",
+                Descripcion = "Ciencia Ficción"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Juegos",
-                Imagen = "juegos.png", Descripcion = "Juegos"
+                Imagen = "juegos.png",
+                Descripcion = "Juegos"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Cine",
-                Imagen = "cine.png", Descripcion = "Cine"
+                Imagen = "cine.png",
+                Descripcion = "Cine"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Deporte",
-                Imagen = "deporte.png", Descripcion = "Deporte"
+                Imagen = "deporte.png",
+                Descripcion = "Deporte"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Idiomas",
-                Imagen = "idiomas.png", Descripcion = "Idiomas"
+                Imagen = "idiomas.png",
+                Descripcion = "Idiomas"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Mascotas",
-                Imagen = "mascota.png", Descripcion = "Mascotas"
+                Imagen = "mascota.png",
+                Descripcion = "Mascotas"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Música",
-                Imagen = "musica.png", Descripcion = "Música"
+                Imagen = "musica.png",
+                Descripcion = "Música"
             });
-            
+
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 2,
                 Nombre = "Salud",
-                Imagen = "salud.png", Descripcion = "Salud"
+                Imagen = "salud.png",
+                Descripcion = "Salud"
             });
-            
+
             NombreCategoria.Add(new CategoriaModel()
             {
                 Id = 3,
                 Nombre = "Matemáticas",
-                Imagen = "matematicas.png", Descripcion = "Matemáticas"
+                Imagen = "matematicas.png",
+                Descripcion = "Matemáticas"
             });
         }
+        
     }
 }

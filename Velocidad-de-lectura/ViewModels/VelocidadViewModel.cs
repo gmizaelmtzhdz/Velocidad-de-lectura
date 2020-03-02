@@ -95,9 +95,10 @@ namespace Velocidaddelectura.ViewModels
 
         public FormattedString GenerarTextoSpan()
         {
+            IsBusy = true;
             FormattedString formattedString = new FormattedString();
             Span span = null;
-            int limite = arreglo.Length>350?350:arreglo.Length;
+            int limite = arreglo.Length>200?200:arreglo.Length;
 
             for (var i = 0; i < limite; i++)
             {
@@ -112,6 +113,7 @@ namespace Velocidaddelectura.ViewModels
 
                 formattedString.Spans.Add(span);
             }
+            IsBusy = false;
             return formattedString;
         }
 
@@ -122,8 +124,22 @@ namespace Velocidaddelectura.ViewModels
                 return GenerarTextoSpan();
             }
         }
+        private bool Busy;
+        public bool IsBusy
+        {
+            get
+            {
+                return Busy;
+            }
+            set
+            {
+                Busy = value;
+                OnPropertyChanged();
+            }
+        }
         public void SpanClicked(object sender)
         {
+            IsBusy = true;
             Span palabra = (Span)sender;
             switch (Taps)
             {
@@ -186,6 +202,7 @@ namespace Velocidaddelectura.ViewModels
                     palabra_fin = 0;
                     break;
             }
+            IsBusy = false;
         }
     }
 }
