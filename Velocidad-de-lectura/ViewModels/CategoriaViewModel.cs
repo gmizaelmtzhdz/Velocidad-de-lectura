@@ -44,7 +44,6 @@ namespace Velocidaddelectura.ViewModels
                 }
                 ejercicio.Categoria = _selectedItem.Nombre;
                 Device.BeginInvokeOnMainThread(Lanzar);
-                SelectedItem = null;
             }
         }
         private async void Lanzar()
@@ -94,35 +93,35 @@ namespace Velocidaddelectura.ViewModels
         {
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 1,
                 Nombre = "Moda y belleza",
                 Imagen = "moda.png",
                 Descripcion = "Moda y belleza"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 1,
+                Id = 2,
                 Nombre = "Cuentos infantiles",
                 Imagen = "cuentos.png",
                 Descripcion = "Cuentos infantiles"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 3,
                 Nombre = "Tecnología",
                 Imagen = "tecnologia.png",
                 Descripcion = "Tecnología"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 4,
                 Nombre = "Naturaleza",
                 Imagen = "naturaleza.png",
                 Descripcion = "Naturaleza"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 1,
+                Id = 5,
                 Nombre = "Arte",
                 Imagen = "arte.png",
                 Descripcion = "Arte"
@@ -130,71 +129,71 @@ namespace Velocidaddelectura.ViewModels
 
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 1,
+                Id = 6,
                 Nombre = "Baile",
                 Imagen = "baile.png",
                 Descripcion = "Baile"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 1,
+                Id = 7,
                 Nombre = "Negocios",
                 Imagen = "negocios.png",
                 Descripcion = "Negocios"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 1,
+                Id = 8,
                 Nombre = "Ciencia Ficción",
                 Imagen = "ciencia_ficcion.png",
                 Descripcion = "Ciencia Ficción"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 9,
                 Nombre = "Juegos",
                 Imagen = "juegos.png",
                 Descripcion = "Juegos"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 10,
                 Nombre = "Cine",
                 Imagen = "cine.png",
                 Descripcion = "Cine"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 11,
                 Nombre = "Deporte",
                 Imagen = "deporte.png",
                 Descripcion = "Deporte"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 12,
                 Nombre = "Idiomas",
                 Imagen = "idiomas.png",
                 Descripcion = "Idiomas"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 13,
                 Nombre = "Mascotas",
                 Imagen = "mascota.png",
                 Descripcion = "Mascotas"
             });
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
-                Nombre = "Música",
+                Id = 14,
+                Nombre = "Música", 
                 Imagen = "musica.png",
                 Descripcion = "Música"
             });
 
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 2,
+                Id = 15,
                 Nombre = "Salud",
                 Imagen = "salud.png",
                 Descripcion = "Salud"
@@ -202,7 +201,7 @@ namespace Velocidaddelectura.ViewModels
 
             NombreCategoria.Add(new CategoriaModel()
             {
-                Id = 3,
+                Id = 16,
                 Nombre = "Matemáticas",
                 Imagen = "matematicas.png",
                 Descripcion = "Matemáticas"
