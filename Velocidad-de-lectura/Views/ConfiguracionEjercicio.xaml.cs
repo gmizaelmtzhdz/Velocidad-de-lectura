@@ -70,7 +70,7 @@ namespace Velocidaddelectura.Views
             }
             catch (Exception e)
             {
-
+                Console.Write(e);
             }
         }
 
@@ -91,7 +91,7 @@ namespace Velocidaddelectura.Views
             }
             catch (Exception e)
             {
-
+                Console.Write(e);
             }
         }
 
