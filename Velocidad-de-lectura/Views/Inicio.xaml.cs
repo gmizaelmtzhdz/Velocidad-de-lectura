@@ -29,7 +29,7 @@ namespace Velocidaddelectura.Views
             }
             catch (Exception e)
             {
-
+                Console.Write(e);
             }
         }
 
