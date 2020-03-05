@@ -5,15 +5,26 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.Views
 {
+    /// <summary>
+    /// Clase de code behind de la vista 'Cronometro.xml' donde el usuario puede tomar el tiempo para ejercicios independientes
+    /// </summary>
     public partial class Cronometro : ContentPage
     {
+        /// <value> Variable de instancia para llevar el control del tiempo (cronómetro) </value>
         private Stopwatch StopWatch;
+        /// <value> Variable de instancia para saber cuántos taps ha dado el usuario en las palabras </value>
         private int inicio = 0;
+
+        /// <summary>
+        /// Constructor de la clase 'Cronometro'
+        /// </summary>
         public Cronometro()
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Recibe una llamada, cuando el botón 'Iniciar' es seleccionado (tap)  
+        /// </summary>
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
             switch(inicio)
@@ -28,8 +39,7 @@ namespace Velocidaddelectura.Views
                         {
                             string hora = ""+(StopWatch.Elapsed.Hours<10 ? "0"+Convert.ToString(StopWatch.Elapsed.Hours): Convert.ToString(StopWatch.Elapsed.Hours));
                             string minuto = "" + (StopWatch.Elapsed.Minutes < 10 ? "0" + Convert.ToString(StopWatch.Elapsed.Minutes) : Convert.ToString(StopWatch.Elapsed.Minutes));
-                            string segundo = "" + (StopWatch.Elapsed.Seconds < 10 ? "0" + Convert.ToString(StopWatch.Elapsed.Seconds) : Convert.ToString(StopWatch.Elapsed.Seconds));
-                            
+                            string segundo = "" + (StopWatch.Elapsed.Seconds < 10 ? "0" + Convert.ToString(StopWatch.Elapsed.Seconds) : Convert.ToString(StopWatch.Elapsed.Seconds));  
                             LblCronometroTiempo.Text = hora + ":" + minuto + ":" + segundo;
                         }
                         return true;
@@ -48,7 +58,6 @@ namespace Velocidaddelectura.Views
                     LblCronometroTiempo.Text = "00:00:00";
                     inicio = 0;
                     break;
-
             }
         }
     }
