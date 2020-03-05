@@ -34,7 +34,6 @@
                        TextColor="#9f6934"  
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"></Label>
-                
             </Grid>
         <Button
             x:Name="BtnAccion"

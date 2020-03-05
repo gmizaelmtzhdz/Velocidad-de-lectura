@@ -7,13 +7,17 @@ using Velocidaddelectura.Views;
 
 namespace Velocidad_de_lectura
 {
+    /// <summary>
+    /// App 
+    /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// Constructor de la clase 'App'
+        /// </summary(
         public App()
         {
             InitializeComponent();
-
-            //DependencyService.Register<MockDataStore>();
             MainPage = new RootPage();
         }
         protected override void OnStart()

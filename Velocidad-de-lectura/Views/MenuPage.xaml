@@ -7,16 +7,12 @@
     Icon="{Binding Icon}"
     IconImageSource="burger_naranja.png"
     BackgroundColor="#FFFFFF">
-
-
     <NavigationPage.TitleView>
         <Label Text="Page Title" BackgroundColor="#000000"/>
     </NavigationPage.TitleView>
-
     <ContentPage.Content>
         <StackLayout VerticalOptions="FillAndExpand">
             <ListView x:Name="ListViewMenu" SeparatorVisibility="None">
-            
                 <ListView.Header>
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -30,7 +26,6 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="5"/>
                                 </Grid.RowDefinitions>
-
                                 <BoxView Grid.ColumnSpan="3" 
                                      Grid.RowSpan="4"/>
                                 <Image

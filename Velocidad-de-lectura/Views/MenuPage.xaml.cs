@@ -9,22 +9,29 @@ using Velocidaddelectura.Views;
 
 namespace Velocidad_de_lectura.Views
 {
+    /// <summary>
+    /// Clase de code behind de la vista 'MenuPage.xml'
+    /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-         RootPage root;
+        /// <value>Variable de instancia para manejar el root (Page).</value>
+        RootPage root;
+        /// <value>Variable de instancia para agregar los ítems del menú</value>
         List<HomeMenuItem> menuItems;
+        /// <summary>
+        /// Constructor de la clase 'MenuPage'
+        /// </summary>
+        /// <param name="root">Parámetro RootPage.</param>
         public MenuPage(RootPage root)
         {
             this.root = root;
             InitializeComponent();
-
             BindingContext = new BaseViewModel
             {
                 Title = "Velocidad",
                 Icon = "burger_naranja.png"
             };
-
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {
@@ -52,15 +59,12 @@ namespace Velocidad_de_lectura.Views
                     TextColor="#636363"
                 }
             };
-
             ListViewMenu.ItemsSource = menuItems;
-
             ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)
                     return;
-
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
                 await this.root.NavigateAsync((int)((HomeMenuItem)e.SelectedItem).Id);
             };

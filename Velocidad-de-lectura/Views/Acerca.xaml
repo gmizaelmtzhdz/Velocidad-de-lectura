@@ -42,9 +42,6 @@
                 </StackLayout>
             </Frame>
             <!--   Fin Modal de cargando...  -->
-
-
-
             </Grid>
     </ContentPage.Content>
 </ContentPage>

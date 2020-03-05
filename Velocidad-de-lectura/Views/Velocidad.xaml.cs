@@ -9,8 +9,15 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.Views
 {
+    /// <summary>
+    /// Clase de code behind de la vista 'Velocidad.xml' donde el usuario puede realizar el ejercicio de lectura
+    /// </summary>
     public partial class Velocidad : ContentPage
     {
+        /// <summary>
+        /// Constructor de la clase 'Velocidad'
+        /// </summary>
+        /// <param name="ejercicio">Parámetro Ejercicio.</param>
         public Velocidad(Ejercicio ejercicio)
         {
             InitializeComponent();
@@ -19,8 +26,6 @@ namespace Velocidaddelectura.Views
             velocidadViewModel.ImagenVelocidad = "cohete_solo.png";
             velocidadViewModel.InstruccionVelocidad = "Selecciona una palabra para iniciar";
             velocidadViewModel.CronometroVelocidad = "";
-            
-
 
             this.BindingContext = velocidadViewModel;
         }

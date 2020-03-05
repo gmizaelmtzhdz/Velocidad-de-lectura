@@ -28,9 +28,6 @@
         </Button>
     </StackLayout>
    </ScrollView>
-
-
-
             <!--   Inicio Modal de cargando...  -->
             <ContentView x:Name="ViewEspera"
                          BackgroundColor="White"
@@ -52,11 +49,6 @@
                 </StackLayout>
             </Frame>
             <!--   Fin Modal de cargando...  -->
-
-
-
             </Grid>
-
-
     </ContentPage.Content>
 </ContentPage>

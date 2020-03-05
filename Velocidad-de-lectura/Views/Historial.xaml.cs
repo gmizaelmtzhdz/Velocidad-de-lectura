@@ -8,9 +8,16 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.Views
 {
+    /// <summary>
+    /// Clase de code behind de la vista 'Historial.xml' donde el usuario puede ver los ejercicios que ha hecho
+    /// </summary>
     public partial class Historial : ContentPage
     {
+        /// <value> Variable de instancia para mandar llamar a CargaItems()... </value>
         public Command GetHistoricoCommand { get; set; }
+        /// <summary>
+        /// Constructor de la clase 'Historial'
+        /// </summary>
         public Historial()
         {
             InitializeComponent();
@@ -24,6 +31,9 @@ namespace Velocidaddelectura.Views
             GetHistoricoCommand = new Command(async () => await CargaItems(), () => !IsBusy);
             GetHistoricoCommand.Execute(null);
         }
+        /// <summary>
+        /// Para agregar las filas de los ejercicios: cada fila tiene la columnas: velocidad, tiempo & palabras
+        /// </summary>
         private async Task CargaItems()
         {
             if (!this.IsBusy)
@@ -58,7 +68,6 @@ namespace Velocidaddelectura.Views
                         HistoricoGrid.Children.Add(lblTiempoTitulo, 1, row);
                         HistoricoGrid.Children.Add(lblPalabrasTitulo, 2, row);
                         row++;
-
                         for (var i=historico.Count-1;i>=0;i--)
                         {
                             decimal velocidad = 0;
@@ -94,7 +103,6 @@ namespace Velocidaddelectura.Views
                             HistoricoGrid.Children.Add(lblPalabras, 2, row);
                             row++;
                         }
-                        
                     }
                     else
                     {
@@ -111,7 +119,6 @@ namespace Velocidaddelectura.Views
                 FrameEspera.IsVisible = false;
                 ActivityEspera.IsVisible = false;
                 ActivityEspera.IsRunning = false;
-
                 this.IsBusy = false;
             }
         }

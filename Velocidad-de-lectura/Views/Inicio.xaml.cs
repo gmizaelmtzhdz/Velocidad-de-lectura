@@ -5,6 +5,9 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.Views
 {
+    /// <summary>
+    /// Clase de code behind de la vista 'Inicio.xml' donde el usuario puede iniciar su ejercicio
+    /// </summary>
     public partial class Inicio : ContentPage
     {
         public Inicio()
@@ -12,6 +15,9 @@ namespace Velocidaddelectura.Views
             InitializeComponent();
 
         }
+        /// <summary>
+        /// Recibe una llamada, cuando el botón 'Iniciar' es seleccionado (tap)  
+        /// </summary>
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
             ViewEspera.IsVisible = true;
@@ -21,6 +27,9 @@ namespace Velocidaddelectura.Views
 
             Device.BeginInvokeOnMainThread(Lanzar);
         }
+        /// <summary>
+        /// Se manda llamar, para iniciar el proceso asíncrono (LanzarAsync()) de lanzar la vista de 'Categoria'
+        /// </summary>
         private async void Lanzar()
         {
             try
@@ -32,7 +41,9 @@ namespace Velocidaddelectura.Views
                 Console.Write(e);
             }
         }
-
+        /// <summary>
+        /// Lanza la vista de 'Categoria'
+        /// </summary>
         private async Task LanzarAsync()
         {
             await Navigation.PushAsync(new Categoria());

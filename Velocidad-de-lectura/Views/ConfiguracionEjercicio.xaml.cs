@@ -8,9 +8,17 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.Views
 {
+    /// <summary>
+    /// Clase de code behind de la vista 'ConfiguracionEjercicio.xml' donde el usuario puede cambiar el tiempo de medición y el tamaño de la letra
+    /// </summary>
     public partial class ConfiguracionEjercicio : ContentPage
     {
+        /// <value>Almacena una instancia de la clase Ejercicio. Esta vista modifica de 'Ejercicio' la variable de instancia: -Segundos, -TamanoFuente y -Texto </value>
         private Ejercicio ejercicio;
+
+        /// <summary>
+        /// Constructor de la clase 'ConfiguracionEjercicio'
+        /// </summary>
         public ConfiguracionEjercicio(Ejercicio ejercicio)
         {
             InitializeComponent();
@@ -24,7 +32,9 @@ namespace Velocidaddelectura.Views
 
             Device.BeginInvokeOnMainThread(Extraccion);
         }
-
+        /// <summary>
+        /// Recibe una llamada, cuando el botón 'Continuar' es seleccionado (tap)  
+        /// </summary>
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
             switch(PickerTiempo.SelectedIndex)
@@ -62,6 +72,9 @@ namespace Velocidaddelectura.Views
 
             Device.BeginInvokeOnMainThread(Lanzar);
         }
+        /// <summary>
+        /// Se manda llamar, para iniciar el proceso asíncrono (LanzarAsync()) de lanzar la vista de 'Velocidad'
+        /// </summary>
         private async void Lanzar()
         {
             try
@@ -73,7 +86,9 @@ namespace Velocidaddelectura.Views
                 Console.Write(e);
             }
         }
-
+        /// <summary>
+        /// Lanza la vista de 'Velocidad'
+        /// </summary>
         private async Task LanzarAsync()
         {
             await Navigation.PushAsync(new Velocidad(ejercicio));
@@ -83,6 +98,9 @@ namespace Velocidaddelectura.Views
             ActivityEspera.IsVisible = false;
             ActivityEspera.IsRunning = false;
         }
+        /// <summary>
+        /// Extrae el texto con base en la categoría seleccionada. Inicia (manda llamar a ExtraccionAsync()) el proceso de extracción
+        /// </summary>
         private async void Extraccion()
         {
             try
@@ -94,7 +112,9 @@ namespace Velocidaddelectura.Views
                 Console.Write(e);
             }
         }
-
+        /// <summary>
+        /// Extracción del texto con base en la categoría seleccionada (tap)
+        /// </summary>
         private async Task ExtraccionAsync()
         {
             LlenarEtiquetasTiempo();
@@ -108,7 +128,9 @@ namespace Velocidaddelectura.Views
             ActivityEspera.IsVisible = false;
             ActivityEspera.IsRunning = false;
         }
-
+        /// <summary>
+        /// Genera y agrega los ítems del select de tiempo 
+        /// </summary>
         private void LlenarEtiquetasTiempo()
         {
             var etiquetas = new List<string>();
@@ -118,6 +140,9 @@ namespace Velocidaddelectura.Views
             PickerTiempo.ItemsSource = etiquetas;
             PickerTiempo.SelectedIndex = 2;
         }
+        /// <summary>
+        /// Genera y agrega los ítems del select de tamaño de letra 
+        /// </summary>
         private void LlenarEtiquetasTamanoLetra()
         {
             var etiquetas = new List<string>();
