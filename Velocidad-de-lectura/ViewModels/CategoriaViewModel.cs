@@ -9,24 +9,36 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.ViewModels
 {
+    /// <summary>
+    /// Clase ViewModels: CategoriaViewModel
+    /// </summary>
     public class CategoriaViewModel : INotifyPropertyChanged
     {
+        /// <value>Variable de instancia: ejercicio (Ejercicio) </value>
         private Ejercicio ejercicio;
+        /// <value>Variable de instancia: NombreCategoria </value>
         public ObservableCollection<CategoriaModel> NombreCategoria { get; set; }
+        /// <value>Variable de instancia: Navigation </value>
         public INavigation Navigation { get; set; }
+        /// <value>Variable de instancia: GetCategoriasCommand </value>
         public Command GetCategoriasCommand { get; set; }
-
+        /// <summary>
+        /// Constructor de la clase 'CategoriaViewModel'
+        /// </summary>
+        /// <param name="navigation">navigation.</param>
         public CategoriaViewModel(INavigation navigation)
         {
             Navigation = navigation;
-
             this.ejercicio = new Ejercicio();
             NombreCategoria = new ObservableCollection<CategoriaModel>();
-
             GetCategoriasCommand = new Command(async () => await LlenarCategorias());
             GetCategoriasCommand.Execute(null);
         }
+        /// <value>Variable de instancia: _selectedItem. </value>
         public CategoriaModel _selectedItem;
+        /// <summary>
+        /// Gets or sets the "SelectedItem"
+        /// </summary>
         public CategoriaModel SelectedItem
         {
             get
@@ -46,6 +58,9 @@ namespace Velocidaddelectura.ViewModels
                 Device.BeginInvokeOnMainThread(Lanzar);
             }
         }
+        /// <summary>
+        /// Se manda llamar, para iniciar el proceso asíncrono (LanzarAsync()) de lanzar la vista de 'ConfiguracionEjercicio'
+        /// </summary>
         private async void Lanzar()
         {
             try
@@ -57,7 +72,9 @@ namespace Velocidaddelectura.ViewModels
                 Console.Write(e);
             }
         }
-
+        /// <summary>
+        /// Lanza la vista de 'ConfiguracionEjercicio'
+        /// </summary>
         private async Task LanzarAsync()
         {
             await Navigation.PushAsync(new ConfiguracionEjercicio(ejercicio));
@@ -65,18 +82,25 @@ namespace Velocidaddelectura.ViewModels
             IsBusy = false;
         }
 
-
+        /// <summary>
+        /// RaisePropertyChanged
+        /// </summary>
+        /// <param name="propertyName">propertyName.</param>
         private void RaisePropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handle = PropertyChanged;
             if (handle != null)
                 handle(this, new PropertyChangedEventArgs(propertyName));
         }
-
+        /// <value>Variable de instancia: PropertyChanged. </value>
         public event PropertyChangedEventHandler PropertyChanged;
 
 
+        /// <value>Variable de instancia: PropertyChanged. </value>
         private bool Busy;
+        /// <summary>
+        /// Gets or sets the "Busy"
+        /// </summary>
         public bool IsBusy
         {
             get
@@ -89,6 +113,9 @@ namespace Velocidaddelectura.ViewModels
                 RaisePropertyChanged("IsBusy");
             }
         }
+        /// <summary>
+        /// LlenarCategorias: agrega los ítems a la vista
+        /// </summary>
         public async Task LlenarCategorias()
         {
             NombreCategoria.Add(new CategoriaModel()

@@ -3,11 +3,18 @@ using System.Collections;
 
 namespace Velocidaddelectura.Services
 {
+    /// <summary>
+    /// Clase ExtraccionContenidoService, utilizada para generar los ítems de la categoria
+    /// </summary>
     public class ExtraccionContenidoService
     {
-        public ExtraccionContenidoService()
-        {
-        }
+        /// <summary>
+        /// Clase ExtraccionContenidoService, utilizada para la extracción de palabras clave con base en la categoria
+        /// </summary>
+        /// <param name="categoria">Categoría seleccionada</param>
+        /// <returns>
+        /// Retorna una palabra o palabras clave con base en la categoria seleccionada, las palabras se utilizan para la extracción de un texto relacionado al tema
+        /// </returns>
         public static string GetPalabraClave(string categoria)
         {
             string resultado = "";

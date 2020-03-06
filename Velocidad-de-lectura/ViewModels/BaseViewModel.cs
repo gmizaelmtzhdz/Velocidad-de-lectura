@@ -7,13 +7,19 @@ using Xamarin.Forms;
 
 using Velocidad_de_lectura.Models;
 using Velocidad_de_lectura.Services;
+using Velocidaddelectura.Models;
 
 namespace Velocidad_de_lectura.ViewModels
 {
+    /// <summary>
+    /// Clase BaseViewModel, genérica
+    /// </summary>
     public class BaseViewModel : INotifyPropertyChanged
     {
+        /// <value>Variable de instancia: DataStore. </value>
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
+        /// <value>Variable de instancia: isBusy. </value>
         bool isBusy = false;
         public bool IsBusy
         {
@@ -21,6 +27,7 @@ namespace Velocidad_de_lectura.ViewModels
             set { SetProperty(ref isBusy, value); }
         }
 
+        /// <value>Variable de instancia: icon. </value>
         private string icon = null;
         /// <summary>
         /// Gets or sets the "Icon" of the viewmodel
@@ -32,16 +39,20 @@ namespace Velocidad_de_lectura.ViewModels
             set { SetProperty(ref icon, value); }
         }
 
-
-
-
+        /// <value>Variable de instancia: title. </value>
         string title = string.Empty;
+        /// <summary>
+        /// Gets or sets the "Title"
+        /// </summary>
         public string Title
         {
             get { return title; }
             set { SetProperty(ref title, value); }
         }
 
+        /// <summary>
+        /// SetProperty
+        /// </summary>
         protected bool SetProperty<T>(ref T backingStore, T value,
             [CallerMemberName]string propertyName = "",
             Action onChanged = null)
