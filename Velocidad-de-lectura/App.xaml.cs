@@ -1,7 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Velocidad_de_lectura.Services;
 using Velocidad_de_lectura.Views;
 using Velocidaddelectura.Views;
 

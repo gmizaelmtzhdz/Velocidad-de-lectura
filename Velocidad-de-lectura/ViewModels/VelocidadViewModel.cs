@@ -9,25 +9,46 @@ using Xamarin.Forms;
 
 namespace Velocidaddelectura.ViewModels
 {
+    /// <summary>
+    /// Clase VelocidadViewModel, es donde se controla el ejercicio de lectura
+    /// </summary>
     public class VelocidadViewModel: INotifyPropertyChanged
     {
+        /// <value>Variable de instancia: PropertyChanged. </value>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <value>Variable de instancia: Taps. Para llevar el conteo de cuantas veces le ha hecho tap al texto </value>
         public static int Taps = 0;
+
+        /// <value>Variable de instancia: texto. texto original para ser leído</value>
         private String texto;
+
+        /// <value>Variable de instancia: arreglo. Palabras almacenadas como ítems en el arreglo</value>
         private String[] arreglo;
+
+        /// <value>Variable de instancia: palabra_inicio. Para saber el index de la palabra de inicio</value>
         private int palabra_inicio = 0;
+
+        /// <value>Variable de instancia: palabra_fin. Para saber el index de la palabra de fin </value>
         private int palabra_fin = 0;
+        /// <value>Variable de instancia: navigation. </value>
         private INavigation navigation;
 
+        /// <value>Variable de instancia: StopWatch. Para llevar el control del tiempo</value>
         private Stopwatch StopWatch;
+        /// <value>Variable de instancia: tiempo_finalizo. Para saber si el ejercicio ya finalizó</value>
         private bool tiempo_finalizo = false;
 
 
+        /// <value>Variable de instancia: ejercicio. </value>
         private Ejercicio ejercicio;
 
 
+        /// <value>Variable de instancia: _CronometroVelocidad. </value>
         private string _CronometroVelocidad;
+        /// <summary>
+        /// Gets or sets the "CronometroVelocidad" 
+        /// </summary>
         public string CronometroVelocidad
         {
             get
@@ -41,7 +62,11 @@ namespace Velocidaddelectura.ViewModels
             }
         }
 
+        /// <value>Variable de instancia: _InstruccionVelocidad. </value>
         private string _InstruccionVelocidad;
+        /// <summary>
+        /// Gets or sets the "InstruccionVelocidad" 
+        /// </summary>
         public string InstruccionVelocidad
         {
             get
@@ -55,8 +80,11 @@ namespace Velocidaddelectura.ViewModels
             }
         }
 
-
+        /// <value>Variable de instancia: _ImagenVelocidad. </value>
         private string _ImagenVelocidad;
+        /// <summary>
+        /// Gets or sets the "ImagenVelocidad" 
+        /// </summary>
         public string ImagenVelocidad
         {
             get
@@ -69,6 +97,11 @@ namespace Velocidaddelectura.ViewModels
                 OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Constructor de la clase 'VelocidadViewModel'
+        /// </summary>
+        /// <param name="nav">INavigation.</param>
+        /// <param name="ejercicio">Ejercicio.</param>
         public VelocidadViewModel(INavigation nav, Ejercicio ejercicio)
         {
             this.ejercicio = ejercicio;
@@ -87,12 +120,12 @@ namespace Velocidaddelectura.ViewModels
                     PropertyChanged?.Invoke(this,
                     new PropertyChangedEventArgs(propertyName));
 
-
-
         public ICommand TapCommand => new Command<Span>(async (palabra) =>
             SpanClicked(palabra)
         );
-
+        /// <summary>
+        /// aquí se agregan los span con base al arreglo de palabras
+        /// </summary>
         public FormattedString GenerarTextoSpan()
         {
             IsBusy = true;
@@ -116,7 +149,9 @@ namespace Velocidaddelectura.ViewModels
             IsBusy = false;
             return formattedString;
         }
-
+        /// <summary>
+        /// Gets or sets the "ContenedorTexto" 
+        /// </summary>
         public FormattedString ContenedorTexto
         {
             get
@@ -124,7 +159,12 @@ namespace Velocidaddelectura.ViewModels
                 return GenerarTextoSpan();
             }
         }
+
+        /// <value>Variable de instancia: Busy. </value>
         private bool Busy;
+        /// <summary>
+        /// Gets or sets the "IsBusy" 
+        /// </summary>
         public bool IsBusy
         {
             get
@@ -137,6 +177,10 @@ namespace Velocidaddelectura.ViewModels
                 OnPropertyChanged();
             }
         }
+        /// <summary>
+        /// Recibe una llamada, cuando el span (palabra) es seleccionado (tap)  
+        /// </summary>
+        /// <param name="sender">object.</param>
         public void SpanClicked(object sender)
         {
             IsBusy = true;

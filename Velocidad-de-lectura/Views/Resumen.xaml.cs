@@ -41,6 +41,8 @@ namespace Velocidaddelectura.Views
         /// <summary>
         /// Recibe una llamada, cuando el botón 'CONTINUAR' es seleccionado (tap)  
         /// </summary>
+        /// <param name="sender">object.</param>
+        /// <param name="e">EventArgs.</param>
         private void BtnSeleccion_Clicked(object sender, EventArgs e)
         {
             Navigation.PopAsync(false);
