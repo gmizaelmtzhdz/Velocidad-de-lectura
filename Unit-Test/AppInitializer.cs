@@ -10,7 +10,7 @@ namespace UnitTest
     {
         public static IApp StartApp(Platform platform)
         {
-            // TODO: If the iOS or Android app being tested is included in the solution 
+            // TODO:  If the iOS or Android app being tested is included in the solution 
             // then open the Unit Tests window, right click Test Apps, select Add App Project
             // and select the app projects that should be tested.
             //

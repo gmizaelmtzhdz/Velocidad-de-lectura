@@ -1,5 +1,9 @@
+[![Download on the Play Store](https://img.shields.io/badge/download-play%20store-orange.svg)](https://play.google.com/store/apps/details?id=com.gmmh.palabras.por.minuto) [![Download on App Store](https://img.shields.io/badge/download-app%20store-blue.svg)](https://apps.apple.com/us/app/palabras-por-minuto/id1502014071) 
+
+
 # PALABRAS POR MINUTO
 App para el cálculo de velocidad de lectura
+
 
 ## INFORMACIÓN GENERAL
 |                |                          |                         |				 
@@ -10,7 +14,7 @@ App para el cálculo de velocidad de lectura
 |Versión de Xamarin.Forms          |4.5.0.356|            |
 |Dependencias          | Newtonsoft.Json - v12.0.3| |
 |Publicación - Play Store          |https://play.google.com/store/apps/details?id=com.gmmh.palabras.por.minuto | |
-|Publicación - App Store          | - | |
+|Publicación - App Store          | https://apps.apple.com/us/app/palabras-por-minuto/id1502014071 | |
 |Facebook          | https://www.facebook.com/PalabraPorMinuto/ | |
 |Youtube          | [https://www.youtube.com/channel/UCASMnywvo2z083manKdNEFg/featured](https://www.youtube.com/channel/UCASMnywvo2z083manKdNEFg/featured) | |
 |Blogger          | [https://palabras-por-minuto.blogspot.com/](https://palabras-por-minuto.blogspot.com/) | |
