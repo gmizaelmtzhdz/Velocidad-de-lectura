@@ -7,31 +7,61 @@ using Xamarin.Forms.Xaml;
 
 namespace Velocidad_de_lectura.Views
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
+    /// <summary>
+    /// Clase de code behind de la vista 'MenuPage.xml'
+    /// </summary>
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MenuPage : ContentPage
     {
-        MainPage RootPage { get => Application.Current.MainPage as MainPage; }
+        /// <value>Variable de instancia para manejar el root (Page).</value>
+        RootPage root;
+        /// <value>Variable de instancia para agregar los ítems del menú</value>
         List<HomeMenuItem> menuItems;
-        public MenuPage()
+        /// <summary>
+        /// Constructor de la clase 'MenuPage'
+        /// </summary>
+        /// <param name="root">Parámetro RootPage.</param>
+        public MenuPage(RootPage root)
         {
             InitializeComponent();
-
+            BindingContext = new BaseViewModel
+            {
+                Title = "Velocidad",
+                Icon = "burger_naranja.png"
+            };
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {
+                    Id = MenuItemType.Inicio,
+                    Title="Inicio",
+                    Icon ="home.png",
+                    TextColor="#636363"
+                },
+                new HomeMenuItem {
+                    Id = MenuItemType.Cronometro,
+                    Icon ="cronometro_menu.png",
+                    Title="Cronómetro",
+                    TextColor="#636363"
+                },
+                new HomeMenuItem {
+                    Id = MenuItemType.Historial,
+                    Title="Historial",
+                    Icon ="historial.png",
+                    TextColor="#636363"
+                },
+                new HomeMenuItem {
+                    Id = MenuItemType.AcercaDe,
+                    Title="Acerca de",
+                    Icon ="info.png",
+                    TextColor="#636363"
+                }
             };
-
             ListViewMenu.ItemsSource = menuItems;
-
             ListViewMenu.SelectedItem = menuItems[0];
             ListViewMenu.ItemSelected += async (sender, e) =>
             {
                 if (e.SelectedItem == null)
                     return;
-
                 var id = (int)((HomeMenuItem)e.SelectedItem).Id;
                 await RootPage.NavigateFromMenu(id);
             };

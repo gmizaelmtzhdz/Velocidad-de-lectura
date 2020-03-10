@@ -10,7 +10,7 @@ namespace UnitTest
     {
         public static IApp StartApp(Platform platform)
         {
-            // TODO: If the iOS or Android app being tested is included in the solution 
+            // TODO:  If the iOS or Android app being tested is included in the solution 
             // then open the Unit Tests window, right click Test Apps, select Add App Project
             // and select the app projects that should be tested.
             //
@@ -19,7 +19,6 @@ namespace UnitTest
             // added to the FinishedLaunching method of the AppDelegate:
             //
             //    #if ENABLE_TEST_CLOUD
-            //    Xamarin.Calabash.Start();
             //    #endif
             if (platform == Platform.Android)
             {

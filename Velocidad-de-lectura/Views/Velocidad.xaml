@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Velocidaddelectura.Views.Velocidad"
+             BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ScrollView>
+            <StackLayout>
+                <Grid Margin="0,30,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ProgressBar ProgressColor="Orange" Progress="0.75" Grid.Column="1" Grid.Row="0"></ProgressBar>
+                <Image Source="{Binding ImagenVelocidad}" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
+                <Label FontSize="14" 
+                       Text="{Binding InstruccionVelocidad}" 
+                       Grid.Column="0"
+                       Grid.ColumnSpan="3"
+                       Grid.Row="2" 
+                       TextColor="#9f6934"  
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+
+                <Label FontSize="12" 
+                       Text="{Binding CronometroVelocidad}" 
+                       Grid.Column="1" 
+                       Grid.Row="3" 
+                       TextColor="#9f6934"  
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center"></Label>
+                
+            </Grid>
+
+
+            <Label x:Name="LblTexto" FormattedText="{Binding ContenedorTexto}" Margin="10,0,10,0" HorizontalTextAlignment="Start" FontSize="28"/>
+
+                
+
+                
+
+            </StackLayout>
+        </ScrollView>
+            <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="{Binding IsBusy}"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+
+
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

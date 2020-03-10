@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Velocidaddelectura.Views.ConfiguracionEjercicio"
+             BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ScrollView>
+       <StackLayout HeightRequest="1000">
+           <Grid Margin="0,30,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ProgressBar ProgressColor="Orange" Progress="0.5" Grid.Column="1" Grid.Row="0"></ProgressBar>
+                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
+                <Label FontSize="14"
+                       Text="Configura tu ejercicio" 
+                       Grid.Column="1" 
+                       Grid.Row="2" 
+                       TextColor="#9f6934"  
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+               <Label FontSize="14" 
+                       Margin="0,60,0,0"
+                       Text="Tiempo de medición:" 
+                       Grid.Column="1" 
+                       Grid.Row="3" 
+                       TextColor="#9f6934"   
+                       HorizontalOptions="Start"></Label>
+                <Picker x:Name="PickerTiempo" 
+                        Title="Tiempo de medición"
+                        Grid.Column="1" 
+                        Grid.Row="4">
+                    </Picker>
+                <Label FontSize="14" 
+                       Text="Tamaño de letra:"
+                       x:Name="LblTamanoLetra"
+                       Grid.Column="1" 
+                       Grid.Row="5" 
+                       TextColor="#9f6934"   
+                       HorizontalOptions="Start"></Label>
+                <Picker x:Name="PickerLetra" 
+                        Title="Tamaño de letra"
+                        Grid.Column="1" 
+                        Grid.Row="6">
+                </Picker>
+                <Button
+                    Text="Continuar"
+                    Grid.Column="1" Grid.Row="7"
+                    FontSize="16"
+                    TextColor="#FFFFFF"
+                    BackgroundColor="#d6450c"
+                    BorderColor="#d6450c"
+                    BorderWidth="1"
+                    CornerRadius="20"
+                    WidthRequest="300"
+                    HorizontalOptions="Center"
+                    Margin="0,50,0,0"
+                    Clicked="BtnSeleccion_Clicked" >
+                </Button>
+            </Grid>
+    </StackLayout>
+   </ScrollView>
+        <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="False"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

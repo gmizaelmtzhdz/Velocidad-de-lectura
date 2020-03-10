@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 
 namespace Velocidad_de_lectura.Services
 {
+
+    /// <summary>
+    /// Interface IDataStore
+    /// </summary>
     public interface IDataStore<T>
     {
         Task<bool> AddItemAsync(T item);

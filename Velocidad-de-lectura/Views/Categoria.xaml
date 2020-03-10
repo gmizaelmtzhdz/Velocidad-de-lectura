@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Velocidaddelectura.Views.Categoria"
+    BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <ScrollView>
+               <StackLayout Spacing="0">
+            <Grid Margin="0,30,0,30">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <ProgressBar ProgressColor="Orange" Progress="0.25" Grid.Column="1" Grid.Row="0"></ProgressBar>
+                <Image Source="cohete_solo.png" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1"/>
+                <Label FontSize="14" 
+                       Text="Selecciona una categoría" 
+                       Grid.Column="1" 
+                       Grid.Row="2" 
+                       TextColor="#9f6934"  
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                
+            </Grid>
+            <ListView x:Name="ListCategorias" ItemsSource="{Binding NombreCategoria}" SelectedItem="{Binding SelectedItem, Mode=TwoWay}" Margin="30, 0, 30, 30">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                                <ImageCell Height="100"  TextColor="#636363"
+                                     Text="{Binding Nombre}"
+                                     ImageSource="{Binding Imagen}">
+                                </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        </ScrollView>
+             <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="{Binding IsBusy}"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="{Binding IsBusy}"
+                        IsVisible="{Binding IsBusy}"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

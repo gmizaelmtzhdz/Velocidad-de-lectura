@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Velocidaddelectura.Views.Historial"
+             BackgroundColor="#FFFFFF">
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <!--    C O D I G O   M A E S T R O  -->
+            <ScrollView>
+                <StackLayout>
+                    <Grid Margin="0,30,0,20">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.1*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="0.1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Image Source="cohete.png" Grid.Column="1" Grid.Row="0"/>
+                        <Label FontSize="24" Text="Historial de Ejercicios" 
+                       Grid.Column="1" 
+                       Grid.Row="1" 
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                        <Label FontSize="10" Text="VELOCIDAD PALABRAS POR SEGUNDO" 
+                       Grid.Column="1" 
+                       Grid.Row="2"
+                               TextColor="#d6450c"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"></Label>
+                    </Grid>
+                    <ScrollView Margin="0,20,0,0">
+                        <Grid x:Name="HistoricoGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                    </ScrollView>
+                </StackLayout>
+            </ScrollView>
+             <!--   Inicio Modal de cargando...  -->
+            <ContentView x:Name="ViewEspera"
+                         BackgroundColor="White"
+                         IsVisible="False"
+                         Opacity="0.1" />
+            <Frame
+                x:Name="FrameEspera"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                IsVisible="False"
+                VerticalOptions="CenterAndExpand">
+                <StackLayout>
+                    <ActivityIndicator
+                        x:Name="ActivityEspera"
+                        IsRunning="False"
+                        IsVisible="False"
+                        VerticalOptions="CenterAndExpand"
+                        Color="Orange" />
+                </StackLayout>
+            </Frame>
+            <!--   Fin Modal de cargando...  -->
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>
