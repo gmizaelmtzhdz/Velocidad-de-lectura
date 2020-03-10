@@ -404,5 +404,6 @@ ASALocalRun/
 # Local History for Visual Studio
 .localhistory/
 Velocidad-de-lectura/Velocidad-de-lectura.csproj
-Velocidad-de-lectura.sln
+Velocidad-de-lectura.iOS/Velocidad-de-lectura.iOS.csproj
+Velocidad-de-lectura.Android/Velocidad-de-lectura.Android.csproj
 Velocidad-de-lectura.sln

@@ -19,7 +19,6 @@ namespace UnitTest
             // added to the FinishedLaunching method of the AppDelegate:
             //
             //    #if ENABLE_TEST_CLOUD
-            //    Xamarin.Calabash.Start();
             //    #endif
             if (platform == Platform.Android)
             {
