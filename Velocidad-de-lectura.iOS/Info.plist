@@ -21,22 +21,24 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>8.0</string>
+	<string>13.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Palabras por minuto</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.gmmh.Velocidad-de-lectura</string>
+	<string>Palabras por minuto</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>CFBundleName</key>
-	<string>Palabras por minuto</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict/>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
 	<key>UIRequiresFullScreen</key>
 	<true/>
+	<key>CFBundleName</key>
+	<string>Palabras por minuto</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.gmmh.palabras.por.minuto</string>
 </dict>
 </plist>
